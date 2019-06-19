@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<title> PrettyCatZone</title>
+<link rel="stylesheet" href="catzone.css">
+
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+</style>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h1>Special site for special guest  </h1>
+  <p>Welcome Cat_Lover! </p>
+</div>
+
+<!-- Photo Grid -->
+<div class="row">
+  <div class="column">
+    <img src="kot1.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+    <img src="kot2.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+    <img src="kot3.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+    <img src="kot4.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+    <img src="kot5.jpg" style="width:100%" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+    <img src="kot6.jpg" style="width:100%" onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+    <img src="kot7.jpg" style="width:100%"onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+    
+  </div>
+
+
+  <div class="column">
+    <img src="kot8.jpg" style="width:100%" onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+    <img src="kot9.jpg" style="width:100%" onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+    <img src="kot10.jpg" style="width:100%" onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+    <img src="kot11.jpg" style="width:100%" onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+    <img src="kot12.jpg" style="width:100%" onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="kot13.jpg" style="width:100%" onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+    <img src="kot14.jpg" style="width:100%" onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+    <img src="kot15.jpg" style="width:100%" onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+    <img src="kot16.jpg" style="width:100%" onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+    <img src="kot17.jpg" style="width:100%" onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
+    <img src="kot18.jpg" style="width:100%" onclick="openModal();currentSlide(18)" class="hover-shadow cursor">
+    <img src="kot19.jpg" style="width:100%" onclick="openModal();currentSlide(19)" class="hover-shadow cursor">
+  </div>
+  <div class="column">
+    <img src="kot20.jpg" style="width:100%" onclick="openModal();currentSlide(20)" class="hover-shadow cursor">
+    <img src="kot21.jpg" style="width:100%" onclick="openModal();currentSlide(21)" class="hover-shadow cursor">
+    <img src="kot22.jpg" style="width:100%" onclick="openModal();currentSlide(22)" class="hover-shadow cursor">
+    <img src="kot23.jpg" style="width:100%" onclick="openModal();currentSlide(23)" class="hover-shadow cursor">
+    <img src="kot24.jpg" style="width:100%" onclick="openModal();currentSlide(24)" class="hover-shadow cursor">
+    <img src="kot25.jpg" style="width:100%" onclick="openModal();currentSlide(25)" class="hover-shadow cursor">
+  </div>
+</div>
+
+
+
+
+
+</body>
+</html>
+
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 25</div>
+      <img src="kot1.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 25 </div>
+      <img src="kot2.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 25</div>
+      <img src="kot3.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 25</div>
+      <img src="kot4.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">5 / 25</div>
+      <img src="kot5.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">6 / 25</div>
+      <img src="kot6.jpg" style="width:100%">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">7 / 25</div>
+      <img src="kot7.jpg" style="width:100%">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">8 / 25</div>
+      <img src="kot8.jpg" style="width:100%">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">9 / 25</div>
+      <img src="kot9.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">10 / 25</div>
+      <img src="kot10.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">11 / 25</div>
+      <img src="kot11.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">12 / 25</div>
+      <img src="kot12.jpg" style="width:100%">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">13 / 25</div>
+      <img src="kot13.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">14 / 25</div>
+      <img src="kot14.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">15 / 25</div>
+      <img src="kot15.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">16 / 25</div>
+      <img src="kot16.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">17 / 25</div>
+      <img src="kot17.jpg" style="width:100%">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">18 / 25</div>
+      <img src="kot18.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">19 / 25</div>
+      <img src="kot19.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">20 / 25</div>
+      <img src="kot20.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">21 / 25</div>
+      <img src="kot21.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">22 / 25</div>
+      <img src="kot22.jpg" style="width:100%">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">23 / 25</div>
+      <img src="kot23.jpg" style="width:100%">
+    </div>
+    <div class="mySlides">
+      <div class="numbertext">24 / 25</div>
+      <img src="kot24.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">25 / 25</div>
+      <img src="kot25.jpg" style="width:100%">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="caption-container">
+      <p id="caption"></p>
+
+    </div>
+
+
+<script>
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>

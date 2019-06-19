@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<script language="JavaScript">
+<!--
+function MakeArray(n) {
+this.length = n
+return this
+}
+monthNames = new MakeArray(12)
+monthNames[1] = "stycznia"
+monthNames[2] = "lutego"
+monthNames[3] = "marca"
+monthNames[4] = "kwietnia"
+monthNames[5] = "maja"
+monthNames[6] = "czerwca"
+monthNames[7] = "lipca"
+monthNames[8] = "sierpnia"
+monthNames[9] = "wrzesnia"
+monthNames[10] = "października"
+monthNames[11] = "listopada"
+monthNames[12] = "grudnia"
+dayNames = new MakeArray(7)
+dayNames[1] = "niedziela"
+dayNames[2] = "poniedziełek"
+dayNames[3] = "wtorek"
+dayNames[4] = "środa"
+dayNames[5] = "czwartek"
+dayNames[6] = "piątek"
+dayNames[7] = "sobota"
+function customDateString() {
+
+
+currentDate = new Date()
+var theDay = dayNames[currentDate.getDay() + 1]
+var theMonth = monthNames[currentDate.getMonth() + 1]
+msie4 = ((navigator.appName == "Microsoft Internet Explorer") && (parseInt(navigator.appVersion) >= 4 ));
+if (msie4) {
+   var theYear = currentDate.getYear()
+}
+else {
+    var theYear = currentDate.getYear() +1900
+}
+return theDay + ", " + currentDate.getDate() + " " + theMonth + " " + theYear + " roku."
+}
+//-->
+
+</script>
+
+<title>ABOUT WITOLD WŁUCZKOWSKI</title>
+<link rel="stylesheet" href="blog.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<body>
+
+<div class="header">
+  <h2>Barista/Programmer in one cup of coffee! </h2>
+
+
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>From Green to Brown </h2>
+      <h5>Title description, March 20, 2019</h5>
+      <img src="zdj12.jpg" alt="width="300" height="400"">
+      <p> Good BEANS OF COFFEE IS FROM?</p>
+      <p>Coffee, coffee, everyone just want to drink some in morning or when they need more energy for work in their hard days, but from where did you get coffee? From green bean, before roasting to brown bean, after that... </p>
+    </div>
+    <div class="card">
+      <h2>Best latte art in town</h2>
+      <h5>Swan and many other , Sep 2, 2019</h5>
+      <img src="zdj7.jpg" alt="width="300" height="300"">
+
+      <p>Once upon a time </p>
+      <p>Ok, it's not some fairy tale, it's just great article about the best Barista and his latte arts... </p>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>About Me:</h2>
+        <img src="wit.png" alt="width="140" height="140"">
+
+      <p>Hello, my name is Witek
+        and i'm the best barista in Wroclaw!</p>
+    </div>
+    <div class="card">
+      <h3>Popular Post</h3>
+      <div class="fakeimg">How to roast Your Coffee?</div><br>
+      <div class="fakeimg">Just make the best Drip in your House!</div><br>
+      <div class="fakeimg">Chemex, what is that? </div>
+    </div>
+    <div class="card">
+      <h3>Follow Me: </h3>
+      <img src="instagram.png" alt="width="25" height="25"">  www.instagram.com/donvitos_/
+<br> </br>
+      <img src="facebook.png" alt="width="25" height="25""> www.facebook.com/HowToCoffe/
+<br> </br>
+      <img src="youtube.png" alt="width="25" height="25""> www.youtube.com/bestwaybeans/
+
+
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2> Today IS: <script LANGUAGE="JavaScript">document.write(customDateString()) </script> </h2>
+
+
+</div>
+
+</body>
+</html>
