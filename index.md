@@ -32,7 +32,7 @@
 
       <h1 class="xlarge-font"><b>Welcome on my site! </b></h1>
      <h1 class="large-font" style="color:MediumSeaGreen;"><b>Here you can find my first loose website project  </b></h1>
-      <p><span style="font-size:36px">If you saw my application and you want find out somethinf more about me check this website and contact me. </span>  </p>
+      <p><span style="font-size:36px">If you saw my application and you want find out something more about me check this website and contact me. </span>  </p>
     <a class="button" href="aboutme.html" target="_blank"> MEET ME! </a>
   </div>
     <div class="column-33">
@@ -49,10 +49,10 @@
       <img src="tlo8.jpg" alt="App" width="300" height="400">
     </div>
     <div class="column-66">
-      <h1 class="xlarge-font"><b> My current PROJECTS! </b></h1>
+      <h1 class="xlarge-font"><b> My projects! </b></h1>
       <h1 class="large-font" style="color:red;"><b>From yesterday until today and to tomorrow! </b></h1>
       <p><span style="font-size:24px"> If you want know something more, call me </span>
-      Here you can find one way if you want write to me. </p>
+      Here you can find another way if you want write to me. </p>
       <a class="button" href="https://www.facebook.com/Witek.Wluczkowski" style="background-color:red"> CLICK HERE!  </a>
     </div>
   </div>
