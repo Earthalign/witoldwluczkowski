@@ -30,10 +30,10 @@
   <div class="row">
     <div class="column-66">
 
-      <h1 class="xlarge-font"><b>Welcome to my site! </b></h1>
-     <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why you should check everything on this website? </b></h1>
-      <p><span style="font-size:36px">If you are interested of some of this things you should</span>  </p>
-    <a class="button" href="aboutme.html" target="_blank"> But first, meet me! </a>
+      <h1 class="xlarge-font"><b>Welcome on my site! </b></h1>
+     <h1 class="large-font" style="color:MediumSeaGreen;"><b>Here you can find my first loose website project  </b></h1>
+      <p><span style="font-size:36px">If you saw my application and you want know something more check this website </span>  </p>
+    <a class="button" href="aboutme.html" target="_blank"> MEET ME! </a>
   </div>
     <div class="column-33">
 
@@ -96,9 +96,9 @@
 <footer>
 <center>
   <p>
-copyright ©. all right reserved for WitoldWluczkowski.   If you want copy that site, tell me and wait for my permisson
+copyright ©. all right reserved for WitoldWluczkowski
 </p>
-<b> @ilike @cats @goodCoffee @goodbeer </b>
+<b>  </b>
 </center>
 
 </footer>
