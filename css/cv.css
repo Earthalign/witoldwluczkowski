@@ -65,13 +65,15 @@
 }
 
 .cv-photo {
-  width: 130px;
-  height: 130px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center top;      /* Focus on face, crop shoulders/backpack */
   border: 4px solid var(--cv-accent);
-  margin-bottom: 18px;
-  box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.15);
+  margin-bottom: 22px;
+  box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.1);
+  background-color: #f1f5f9;         /* Fallback background color */
 }
 
 .cv-name {
