@@ -1,136 +1,116 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <title> MyBaristaArts</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Witold Wluczkowski | Portfolio & Projects</title>
 
-<meta charset="utf-8" />
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 
 <body>
 
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="strona2.html">WITERLOO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="strona2.html">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutme.html">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Hero Section (Smaller) -->
+  <section class="hero-section d-flex align-items-center" style="padding: 100px 0 60px;">
+    <div class="container text-center">
+      <h1>My Projects</h1>
+      <p class="mx-auto">A showcase of my recent work, technological stack, and professional achievements.</p>
+    </div>
+  </section>
 
-  <div class="bd-example">
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="6"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="7"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="8"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="9"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="10"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="11"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="12"></li>
-
-
-
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="zdj1.png" class="d-block w-100" alt="width="750" height="900"">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Muzyka dla uszu </h5>
-            <p>#1</p>
+  <!-- Portfolio Content -->
+  <section class="section-content bg-white">
+    <div class="container">
+      <div class="row">
+        <!-- Project 1 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="project-card">
+            <img src="assets/images/tlo3.jpg" alt="Web Development Project" onerror="this.src='assets/images/tlo1.jpg'">
+            <div class="project-card-body">
+              <h3>Web Development</h3>
+              <p>Designing modern, responsive interfaces utilizing the latest UI/UX principles and front-end frameworks.
+              </p>
+              <a href="https://github.com/Earthalign?tab=repositories" target="_blank" class="btn-custom"
+                style="padding: 8px 20px; font-size: 0.9rem;">View on GitHub</a>
+            </div>
           </div>
         </div>
-        <div class="carousel-item">
-          <img src="zdj2.jpg" class="d-block w-100" alt="width="750" height="900"">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Rybka w filiżance</h5>
-            <p>#2</p>
+        <!-- Project 2 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="project-card">
+            <img src="assets/images/zdj1.png" alt="Project 2" onerror="this.src='assets/images/zdj1.png'">
+            <div class="project-card-body">
+              <h3>System Architecture</h3>
+              <p>Building resilient and scalable backend structures to handle complex data and performance requirements.
+              </p>
+              <a href="https://github.com/Earthalign?tab=repositories" target="_blank" class="btn-custom"
+                style="padding: 8px 20px; font-size: 0.9rem;">View on GitHub</a>
+            </div>
           </div>
         </div>
-        <div class="carousel-item">
-          <img src="gora.jpg" class="d-block w-100" alt="width="750" height="900"">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Artystycznie </h5>
-            <p>#3 </p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="zdj4.jpg" class="d-block w-100" alt="width="750" height="900"">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Miś i "coś"</h5>
-            <p>#4</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="zdj5.jpg" class="d-block w-100" alt="width="750" height="900"">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Stary mędrzec</h5>
-            <p>#5</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="zdj6.png" class="d-block w-100" alt="width="750" height="900"">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Magic Coffee z innej perspektywy</h5>
-            <p> #6 </p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="zdj7.jpg" class="d-block w-100" alt="width="750" height="900"">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Jezioro Łabędzie</h5>
-            <p>#7</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="zdj8.jpg" class="d-block w-100" alt="width="750" height="900"">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Głodny domowy miś</h5>
-            <p>#8</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="zdj9.png" class="d-block w-100" alt="width="750" height="900"">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Wielkanocny królik</h5>
-            <p>#9</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="zdj10.jpg" class="d-block w-100" alt="width="750" height="900"">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Świąteczny tulipan</h5>
-            <p>#10</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="zdj11.jpg" class="d-block w-100" alt="width="750" height="900"">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Łabędź </h5>
-            <p>#11</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="zdj12.jpg" class="d-block w-100" alt="width="750" height="900"">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Im więcej kawy tym lepiej</h5>
-            <p>#12</p>
+        <!-- Project 3 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="project-card">
+            <img src="assets/images/zdj6.png" alt="Project 3" onerror="this.src='assets/images/zdj6.png'">
+            <div class="project-card-body">
+              <h3>Data & Analytics</h3>
+              <p>Implementing data tracking algorithms to deliver actionable insights and improve service quality.</p>
+              <a href="https://github.com/Earthalign?tab=repositories" target="_blank" class="btn-custom"
+                style="padding: 8px 20px; font-size: 0.9rem;">View on GitHub</a>
+            </div>
           </div>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
-  </div>
+  </section>
 
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/witold-w%C5%82uczkowski-7b19491b9/" target="_blank"><i
+            class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Earthalign" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.facebook.com/Witek.Wluczkowski" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
+      <p class="mb-0">Copyright &copy; 2026 Witold Wluczkowski. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
+
 </html>
+

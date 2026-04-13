@@ -1,128 +1,101 @@
 <!DOCTYPE html>
-<html lang ="pl">
+<html lang="en">
+
 <head>
-  <title> CheckMe</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Me | Witold Wluczkowski</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="utf-8" />
-
-<style>
-* {
-  box-sizing:border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-
-}
-
-.container {
-  padding: 64px;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both
-}
-
-.column-66 {
-  float: left;
-  width: 66.66666%;
-  padding: 20px;
-}
-
-.column-33 {
-  float: left;
-  width: 33.33333%;
-  padding: 20px;
-}
-
-.large-font {
-  font-size: 48px;
-}
-
-.xlarge-font {
-  font-size: 64px
-}
-
-.button {
-  border: none;
-  color: white;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #4CAF50;
-}
-
-img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-}
-
-@media screen and (max-width: 1000px) {
-  .column-66,
-  .column-33 {
-    width: 100%;
-    text-align: center;
-  }
-  img {
-    margin: auto;
-  }
-}
-</style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="column-66">
-      <h1 class="xlarge-font"><b>It's ME </b></h1>
-      <h1 class="large-font" style="color:MediumSeaGreen;"><b> Something about me: </b></h1>
-      <p><span style="font-size:36px"> </span> My name is Witold Włuczkowski. I'm 24 years old. I don't have much experience in practical IT section, but I'm trying to get it as fast as possible. Technologies that I'm familiar with: C++, Java, JavaScript, HTML, CSS, Python, bootstrap and few other...</p>
-      <a href="https://www.facebook.com/Witek.Wluczkowski " class="button"> Write to me </a>
-
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="strona2.html">WITERLOO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="strona2.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="aboutme.html">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="column-33">
-        <img src="toja.jpg" width="300" height="400">
-    </div>
-  </div>
-</div>
+  </nav>
 
-<!-- Clarity Section -->
-<div class="container" style="background-color:#f1f1f1">
-  <div class="row">
-    <div class="column-33">
-      <img src="cvzdj2.png" alt="App" width="335" height="471">
+  <!-- Hero Section -->
+  <section class="hero-section d-flex align-items-center" style="padding: 100px 0 60px;">
+    <div class="container text-center">
+      <h1>About Me</h1>
+      <p class="mx-auto">Discover my background, skills, and the journey that led me to become the professional I am
+        today.</p>
     </div>
-    <div class="column-66">
-      <h1 class="xlarge-font"><b>Barista</b></h1>
-      <h1 class="large-font" style="color:red;"><b> My last 3-4 Years </b></h1>
-      <p><span style="font-size:24px"> Barista with SKILLS! </span> Before I started studying IT, I was Barista for more than 3 years in almost 10 different cafes (here is my old barista cv) </p>
-      <a href="https://drive.google.com/open?id=1-KDrK0SVjgCg786PNELb6Mupm_bffdJ_" class="button" style="background-color:red">Barista CV </a>
-    </div>
-  </div>
-</div>
+  </section>
 
-<!-- The App Section -->
-<div class="container">
-  <div class="row">
-    <div class="column-66">
-      <h1 class="xlarge-font"><b>Programmer</b></h1>
-      <h1 class="large-font" style="color:MediumSeaGreen;"><b>IT section</b></h1>
-      <p><span style="font-size:36px">Im studying informatic technology, I'm in last, third year. </span> Here you can find my new CV. I'm still trying to get trainee/job in IT section and I hope You can help me with that! </p>
-      <a href="https://drive.google.com/file/d/1fdtNJT0y2aaXALAWiH9SYLzwt9PkCKk5/view?usp=sharing" class="button">Download THIS CV</a>
+  <!-- About Section -->
+  <section class="section-content bg-white">
+    <div class="container">
+      <div class="feature-row">
+        <div class="col-md-5">
+          <img src="assets/images/toja.jpg" alt="Witold Wluczkowski" class="img-fluid rounded"
+            style="box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+        </div>
+        <div class="col-md-7 feature-text">
+          <h2>About Me</h2>
+          <p>I am an experienced Software Engineer with several years of commercial experience specializing in Python
+            and
+            Java development. My core expertise revolves around building scalable software, writing complex backend
+            scripts, and architecting resilient infrastructure.</p>
+          <p>Beyond pure coding, I excel within the DevOps ecosystem. I actively maintain tools like Grafana and
+            Jenkins, construct efficient CI/CD pipelines, and ensure smooth, automated software delivery. I am
+            constantly working to bridge development patterns with real-world, high-availability deployments.</p>
+          <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap;">
+            <a href="contact.html" class="btn-custom">Get in Touch</a>
+            <a href="https://drive.google.com/file/d/1Q6v03Y-Nr6_Pj4oOU2Y3zTYB_mJymZG7/view?usp=sharing" target="_blank"
+              class="btn-custom" style="background: linear-gradient(to right, #6b7280, #4b5563);"><i
+                class="fas fa-file-pdf mr-2"></i>IT Resume</a>
+            <a href="https://drive.google.com/open?id=1-KDrK0SVjgCg786PNELb6Mupm_bffdJ_" target="_blank"
+              class="btn-custom" style="background: linear-gradient(to right, #8b5cf6, #6d28d9);"><i
+                class="fas fa-coffee mr-2"></i>Barista Resume (old times)</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="column-33">
-        <img src="cvzdj.png" width="335" height="471" >
-    </div>
-  </div>
-</div>
+  </section>
 
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/witold-w%C5%82uczkowski-7b19491b9/" target="_blank"><i
+            class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Earthalign" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.facebook.com/Witek.Wluczkowski" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
+      <p class="mb-0">Copyright &copy; 2026 Witold Wluczkowski. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
+
 </html>
+

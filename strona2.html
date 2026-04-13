@@ -1,104 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="utf-8" />
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<title>Witold Wluczkowski Site</title>
-<link rel="stylesheet" href="style4.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Witold Wluczkowski | Portfolio</title>
+
+  <!-- Bootstrap CSS for layout Grid & Navbar -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
 
 <body>
 
-<div class="header">
-  <a href="strona2.html" class="logo">WITERLOO </a>
-  <div class="header-right">
-  <a class="active" href="strona2.html">Home</a>
-  <a href="portfolio.html">Portfolio</a>
-  <a href="contact2.html">Contact</a>
-  <a class="active" href="blog.html">Blog</a>
-  
-  <a href="catzone.html">CatZone</a>
-  <a class="active" href="aboutme.html">AboutMe</a>
-
-
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="column-66">
-
-      <h1 class="xlarge-font"><b>Welcome on my site! </b></h1>
-     <h1 class="large-font" style="color:MediumSeaGreen;"><b>Here you can find my first loose website project  </b></h1>
-      <p><span style="font-size:36px">If you saw my application and you want find out something more about me check this website and contact me. </span>  </p>
-    <a class="button" href="aboutme.html" target="_blank"> MEET ME! </a>
-  </div>
-    <div class="column-33">
-
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="strona2.html">WITERLOO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="strona2.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutme.html">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-  </div>
-</div>
-
-<!-- Clarity Section -->
-<div class="container" style="background-color:#f1f1f1">
-  <div class="row">
-    <div class="column-33">
-      <img src="tlo8.jpg" alt="App" width="300" height="400">
+  <!-- Hero Section -->
+  <section class="hero-section d-flex align-items-center">
+    <div class="container text-left">
+      <h1>Portfolio</h1>
+      <p>I am Witold Wluczkowski, an experienced Software Engineer with years of commercial practice in Python and Java.
+        I specialize in building robust software, writing comprehensive scripts, and architecting reliable internal
+        tools.</p>
+      <a href="aboutme.html" class="btn-custom">Discover More</a>
     </div>
-  <div class="column-66">
-      <h1 class="xlarge-font"><b> My projects! </b></h1>
-      <h1 class="large-font" style="color:red;"><b>From yesterday until today and to tomorrow! </b></h1>
-      <p><span style="font-size:24px"> If you want know something more, call me </span>
-      Here you can find another way if you want write to me. </p>
-      <a class="button" href="https://www.facebook.com/Witek.Wluczkowski" style="background-color:red"> CLICK HERE!  </a>
-    </div>
-  </div>
-</div>
+  </section>
 
-<!-- The App Section -->
-<div class="container">
-  <div class="row">
-     <div class="column-66">
-      <h1 class="xlarge-font"><b>Beacause im a COFFEE lover! </b></h1>
-      <h1 class="large-font" style="color:MediumSeaGreen;"><b>Speciallity Coffee</b></h1>
-      <p><span style="font-size:36px">If you like to drink good coffee</span>
-        We both like the same, check some of my arts what i did in cups and let's have a coffee! </p>
-      <a class="button" href="portfolio.html" > Visit my gallery  </a>
+  <!-- Content Section 1 -->
+  <section class="section-content bg-white">
+    <div class="container">
+      <div class="feature-row">
+        <div class="col-md-5">
+          <!-- Using an existing image, assumed good quality from assets -->
+          <img src="assets/images/tlo8.jpg" alt="Technology Projects" class="img-fluid rounded">
+        </div>
+        <div class="col-md-7 feature-text">
+          <h2>Commercial Software Engineering</h2>
+          <p>I have built my career upon developing advanced software systems, mastering automated scripting, and
+            resolving complex technical challenges. Through years of diverse, commercial engineering work, I implement
+            only the highest code quality standards.</p>
+          <a href="portfolio.html" class="btn-custom"
+            style="background: linear-gradient(to right, #10b981, #059669);">View My Work</a>
+        </div>
+      </div>
     </div>
-    <div class="column-33">
-<img src="shot.jpg" width="400" height="300">
+  </section>
 
+  <!-- Content Section 2 -->
+  <section class="section-content" style="background-color: var(--bg-color);">
+    <div class="container">
+      <div class="feature-row">
+        <div class="col-md-6 feature-text order-2 order-md-1">
+          <h2>DevOps & Infrastructure (CI/CD)</h2>
+          <p>My skillset extends significantly into DevOps environments. I actively manage infrastructure using Jenkins
+            and Grafana, construct robust CI/CD deployment pipelines, and maintain end-to-end continuous integration
+            systems.</p>
+          <!-- LinkedIn Link -->
+          <a href="https://www.linkedin.com/in/witold-w%C5%82uczkowski-7b19491b9/" target="_blank" class="btn-custom"
+            style="background: linear-gradient(to right, #0077b5, #005e93); margin-top: 15px;">
+            <i class="fab fa-linkedin mr-2"></i> Connect on LinkedIn
+          </a>
+        </div>
+        <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+          <img src="assets/images/zdj6.png" alt="DevOps Tech" class="img-fluid rounded">
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </section>
 
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/witold-w%C5%82uczkowski-7b19491b9/" target="_blank"><i
+            class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Earthalign" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.facebook.com/Witek.Wluczkowski" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
+      <p class="mb-0">Copyright &copy; 2026 Witold Wluczkowski. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
 
-<!-- Clarity Section -->
-<div class="container" style="background-color:#f1f1f1">
-  <div class="row">
-    <div class="column-33">
-      <img src="mak6.jpg" alt="App" width="335" height="471">
-    </div>
-     <div class="column-66">
-       <h1 class="xlarge-font"><b>Great Tech!</b></h1>
-      <h1 class="large-font" style="color:red;"><b> I love new, practical technology and so many different way to use them </b></h1>
-      <p><span style="font-size:24px"> You like Apple or other interesting brands? </span> Or maybe some Microsoft projects, or operating system? We have a lot in common   </p>
-      <a class="button" href="https://www.facebook.com/Witek.Wluczkowski" style="background-color:red">Actually nothing is here  </a>
-    </div>
-  </div>
-</div>
-
-<footer>
-<center>
-  <p>
-copyright ©. all right reserved for WitoldWluczkowski.   If you want copy that site, tell me and wait for my permisson
-</p>
-
-</center>
-
-</footer>
