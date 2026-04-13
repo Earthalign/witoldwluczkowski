@@ -362,3 +362,118 @@
   margin-top: 10px;
   line-height: 1.6;
 }
+
+/* ══════════════════════════
+   PRINT OPTIMIZATION
+══════════════════════════ */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  /* Hide UI elements */
+  nav, .navbar, .hero-section, footer, #generatePdfBtn, .social-links, .btn-custom {
+    display: none !important;
+  }
+  
+  body {
+    background: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .cv-section {
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .cv-wrapper {
+    display: grid !important;
+    grid-template-columns: 300px 1fr !important; /* Proper sidebar width */
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .cv-sidebar {
+    padding: 20px 20px !important;
+  }
+
+  .cv-main {
+    padding: 25px 30px !important;
+  }
+
+  /* Force colors and backgrounds */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .cv-sidebar-block {
+    margin-bottom: 14px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .cv-section-block {
+    margin-bottom: 36px !important;
+  }
+
+  .cv-entry {
+    margin-bottom: 22px !important;
+  }
+
+  .cv-name {
+    font-size: 2.22rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .cv-skill {
+    margin-bottom: 8px !important;
+  }
+
+  .cv-tag {
+    padding: 3px 10px !important;
+    font-size: 0.72rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .cv-gdpr {
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+    font-size: 0.65rem !important;
+  }
+
+  .cv-bullets li {
+    margin-bottom: 1px !important;
+    font-size: 0.82rem !important;
+  }
+
+  /* Force skill bars to show background gradients */
+  .cv-skill-bar {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #eee !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  .cv-skill-fill {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    display: block !important;
+    height: 100% !important;
+    background-color: #3b82f6 !important; /* Fallback for printers that block gradients */
+    background: linear-gradient(to right, #3b82f6, #10b981) !important;
+  }
+}

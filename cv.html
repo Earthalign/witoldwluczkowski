@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/cv.css">
+  <!-- html2pdf.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
@@ -28,7 +30,7 @@
           <li class="nav-item"><a class="nav-link" href="strona2.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
           <li class="nav-item"><a class="nav-link" href="aboutme.html">About Me</a></li>
-          <li class="nav-item active"><a class="nav-link" href="cv.html">CV</a></li>
+          <li class="nav-item active"><a class="nav-link" href="cv.html">Virtual CV</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -40,11 +42,16 @@
     <div class="container text-center">
       <h1>Virtual CV</h1>
       <p class="mx-auto">My professional experience, skills and education — all in one place.</p>
-      <a href="https://drive.google.com/file/d/1Q6v03Y-Nr6_Pj4oOU2Y3zTYB_mJymZG7/view?usp=sharing" target="_blank"
-        class="btn-custom mt-3">
-        <i class="fas fa-file-pdf mr-2"></i>Download PDF
-      </a>
-    </div>
+      <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
+        <a href="https://drive.google.com/file/d/1Q6v03Y-Nr6_Pj4oOU2Y3zTYB_mJymZG7/view?usp=sharing" target="_blank"
+          class="btn-custom">
+          <i class="fas fa-external-link-alt mr-2"></i>Original PDF
+        </a>
+        <button id="generatePdfBtn" class="btn-custom" style="background: linear-gradient(to right, #10b981, #059669);"
+          onclick="window.print()">
+          <i class="fas fa-file-download mr-2"></i>Generate PDF from Page
+        </button>
+      </div>
   </section>
 
   <!-- CV Main Content -->
@@ -55,8 +62,8 @@
         <aside class="cv-sidebar">
           <!-- Photo & Name -->
           <div class="cv-sidebar-header">
-            <img src="https://lh3.googleusercontent.com/d/1AvsQGaBQ6EAf3a64IcS9_MDbWX0wl5Uq" alt="Witold Włuczkowski"
-              class="cv-photo" referrerpolicy="no-referrer">
+            <img src="https://i.postimg.cc/G3Wx7CHs/toja-2.jpg" alt="Witold Włuczkowski"
+              class="cv-photo">
             <h1 class="cv-name">Witold<br>Włuczkowski</h1>
             <p class="cv-role">Software Engineer<br>Python & Java & AI </p>
           </div>
@@ -85,53 +92,52 @@
           <div class="cv-sidebar-block">
             <h3 class="cv-sidebar-title"><i class="fas fa-code mr-2"></i>Tech Skills</h3>
 
-            <!-- EDIT: change the label and data-level (0–100) for each skill -->
             <div class="cv-skill">
               <span class="cv-skill-name">Python</span>
               <div class="cv-skill-bar">
-                <div class="cv-skill-fill" data-level="90"></div>
+                <div class="cv-skill-fill" data-level="90" style="width: 90%;"></div>
               </div>
             </div>
             <div class="cv-skill">
               <span class="cv-skill-name">Java</span>
               <div class="cv-skill-bar">
-                <div class="cv-skill-fill" data-level="75"></div>
+                <div class="cv-skill-fill" data-level="75" style="width: 75%;"></div>
               </div>
             </div>
             <div class="cv-skill">
               <span class="cv-skill-name">Jenkins / CI/CD</span>
               <div class="cv-skill-bar">
-                <div class="cv-skill-fill" data-level="80"></div>
+                <div class="cv-skill-fill" data-level="80" style="width: 80%;"></div>
               </div>
             </div>
             <div class="cv-skill">
               <span class="cv-skill-name">Grafana</span>
               <div class="cv-skill-bar">
-                <div class="cv-skill-fill" data-level="75"></div>
+                <div class="cv-skill-fill" data-level="75" style="width: 75%;"></div>
               </div>
             </div>
             <div class="cv-skill">
               <span class="cv-skill-name">GitLab / Git</span>
               <div class="cv-skill-bar">
-                <div class="cv-skill-fill" data-level="85"></div>
+                <div class="cv-skill-fill" data-level="85" style="width: 85%;"></div>
               </div>
             </div>
             <div class="cv-skill">
               <span class="cv-skill-name">Pytest / Robot Framework</span>
               <div class="cv-skill-bar">
-                <div class="cv-skill-fill" data-level="90"></div>
+                <div class="cv-skill-fill" data-level="90" style="width: 90%;"></div>
               </div>
             </div>
             <div class="cv-skill">
               <span class="cv-skill-name">Robot Framework</span>
               <div class="cv-skill-bar">
-                <div class="cv-skill-fill" data-level="90"></div>
+                <div class="cv-skill-fill" data-level="90" style="width: 90%;"></div>
               </div>
             </div>
             <div class="cv-skill">
               <span class="cv-skill-name">AI Tools</span>
               <div class="cv-skill-bar">
-                <div class="cv-skill-fill" data-level="80"></div>
+                <div class="cv-skill-fill" data-level="80" style="width: 80%;"></div>
               </div>
             </div>
           </div>
@@ -143,6 +149,15 @@
             <div class="cv-tags">
               <span class="cv-tag">SCRUM / Agile</span>
               <span class="cv-tag">Jira</span>
+              <span class="cv-tag">Jenkins</span>
+              <span class="cv-tag">Git</span>
+              <span class="cv-tag">Machine Learning</span>
+              <span class="cv-tag">Grafana</span>
+              <span class="cv-tag">Python libraries</span>
+              <span class="cv-tag">Pytest</span>
+              <span class="cv-tag">Robot Framework</span>
+              <span class="cv-tag">Jupyter Notebook </span>
+              <span class="cv-tag">scikit-learn</span>
               <span class="cv-tag">Linux</span>
               <span class="cv-tag">Docker</span>
               <span class="cv-tag">Bash</span>
@@ -322,7 +337,13 @@
       };
 
       window.addEventListener('scroll', animateBars);
-      setTimeout(animateBars, 400); // also run after short delay on load
+      setTimeout(animateBars, 400);
+
+      // --- PDF / PRINT LOGIC ---
+      const generateBtn = document.getElementById('generatePdfBtn');
+      generateBtn.addEventListener('click', function () {
+        window.print();
+      });
     });
   </script>
 
