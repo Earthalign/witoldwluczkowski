@@ -18,7 +18,10 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: 'Outfit', sans-serif;
 }
 
@@ -45,7 +48,8 @@ h1, h2, h3, h4 {
   transition: color 0.3s ease;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
   color: var(--secondary) !important;
 }
 
@@ -53,7 +57,7 @@ h1, h2, h3, h4 {
 .hero-section {
   position: relative;
   padding: 150px 0;
-  background: linear-gradient(135deg, rgba(17,24,39,0.9), rgba(17,24,39,0.7)), url('../assets/images/tlo2.jpg');
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.7)), url('../assets/images/tlo2.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -124,15 +128,15 @@ h1, h2, h3, h4 {
   background: var(--card-bg);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   transition: all 0.4s ease;
   height: 100%;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .project-card img {
@@ -171,7 +175,7 @@ h1, h2, h3, h4 {
 
 .feature-row img {
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 500px;
 }
@@ -194,12 +198,30 @@ h1, h2, h3, h4 {
     flex-direction: column;
     text-align: center;
   }
+
+  /* Disable heavy render effects on mobile to prevent scroll lag */
+  .hero-section {
+    background-attachment: scroll !important;
+  }
+
+  .navbar {
+    backdrop-filter: none !important;
+    background-color: rgba(17, 24, 39, 1) !important;
+  }
+
+  /* Simplify animations on mobile devices */
+  .hero-section h1,
+  .btn-custom,
+  .hero-section p {
+    animation: none !important;
+    opacity: 1 !important;
+  }
 }
 
 /* Footer */
 footer {
   background-color: var(--primary);
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
   padding: 50px 0 30px;
 }
 
@@ -226,6 +248,7 @@ footer {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
