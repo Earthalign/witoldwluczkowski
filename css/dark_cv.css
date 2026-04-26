@@ -497,9 +497,38 @@
         padding: 1.25rem;
     }
 
+    .entry-company {
+        font-size: 16px;
+    }
+
+    .entry-role {
+        font-size: 13px;
+    }
+
+    .entry-bullets li {
+        font-size: 13px;
+    }
+
+    .edu-school {
+        font-size: 14px;
+    }
+
+    .contact-list li {
+        font-size: 13px;
+    }
+
+    .sidebar-block-title {
+        font-size: 11px;
+    }
+
+    .skill-label {
+        font-size: 11px;
+    }
+
     .entry-date {
         text-align: left;
         margin-top: 4px;
+        font-size: 10px;
     }
 }
 
