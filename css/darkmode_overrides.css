@@ -437,13 +437,6 @@
     }
 }
 
-/* Redesign CV Overlap Fix - increased padding */
-@media (max-width: 820px) {
-    .hero {
-        padding-top: 130px !important; /* More space to prevent any overlap */
-    }
-}
-
 /* Legacy CV (cv.html) Mobile Improvements */
 @media (max-width: 768px) {
     .cv-wrapper {
