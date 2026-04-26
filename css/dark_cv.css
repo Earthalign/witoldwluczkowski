@@ -493,8 +493,12 @@
     }
 
     .entry {
-        grid-template-columns: 1fr;
-        padding: 1.25rem 1rem;
+        display: block; /* Switch from grid to block for maximum width */
+        padding: 1.5rem 1.25rem;
+    }
+
+    .entry-meta {
+        margin-bottom: 0.5rem;
     }
 
     .entry-company {
@@ -536,7 +540,13 @@
     .entry-date {
         text-align: left;
         margin-top: 4px;
-        font-size: 10px;
+        font-size: 11px;
+    }
+
+    .gdpr {
+        order: 10; /* Ensures it is always at the very bottom */
+        margin-top: 2rem;
+        font-size: 11px;
     }
 }
 
