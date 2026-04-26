@@ -351,55 +351,80 @@
 
 /* Mobile Navbar Fixes */
 @media (max-width: 991px) {
+    /* Hamburger Button - consistent look */
+    .navbar-toggler {
+        border-width: 1px !important;
+        padding: 5px 8px !important;
+        border-radius: 6px !important;
+    }
+
     [data-theme="dark"] .navbar-toggler {
         border-color: var(--green, #39ff7e) !important;
-        background-color: var(--green-glow, rgba(57, 255, 126, 0.1)) !important;
-        padding: 6px 10px;
+        background-color: rgba(57, 255, 126, 0.05) !important;
     }
 
-    /* Fixed visibility for the hamburger icon lines */
+    /* Green lines for dark toggle */
     [data-theme="dark"] .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%2857, 255, 126, 0.8%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%2857, 255, 126, 1%29' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
     }
 
+    /* Dark lines for light toggle */
+    [data-theme="light"] .navbar-toggler {
+        border-color: #cbd5e1 !important;
+        background-color: #f8fafc !important;
+    }
+    
+    [data-theme="light"] .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%2815, 23, 42, 1%29' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+    }
+
+    /* Solid drawer backgrounds + forced text contrast */
     [data-theme="dark"] .navbar-collapse {
         background-color: var(--bg, #0d0e0f) !important;
         padding: 2rem !important;
-        border-radius: 0 0 15px 15px;
-        margin-top: 0;
-        border: none;
+        border-radius: 0 0 20px 20px;
         border-bottom: 1px solid var(--line, #2a2d32);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-        text-align: center;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.8);
         position: absolute;
         width: 100%;
         left: 0;
         top: 100%;
-    }
-
-    [data-theme="dark"] .nav-item {
-        margin: 10px 0;
-    }
-
-    [data-theme="dark"] .theme-toggle {
-        margin: 15px auto 0;
-        width: auto;
-        min-width: 140px;
+        z-index: 9999;
     }
 
     [data-theme="light"] .navbar-collapse {
         background-color: #ffffff !important;
         padding: 2rem !important;
-        border-radius: 0 0 15px 15px;
-        margin-top: 0;
-        border: none;
+        border-radius: 0 0 20px 20px;
         border-bottom: 1px solid #e2e8f0;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        text-align: center;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         position: absolute;
         width: 100%;
         left: 0;
         top: 100%;
+        z-index: 9999;
+    }
+
+    [data-theme="light"] .navbar-collapse .nav-link {
+        color: #1e293b !important;
+        font-weight: 600;
+    }
+
+    [data-theme="dark"] .nav-item { margin: 12px 0; }
+    [data-theme="light"] .nav-item { margin: 12px 0; }
+
+    .theme-toggle {
+        margin: 15px auto 0 !important;
+        width: auto !important;
+        min-width: 150px;
+        justify-content: center;
+    }
+}
+
+/* Redesign CV Overlap Fix */
+@media (max-width: 820px) {
+    .hero {
+        padding-top: 100px !important; /* Extra space for fixed nav */
     }
 }
 
