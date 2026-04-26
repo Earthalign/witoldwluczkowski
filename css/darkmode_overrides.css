@@ -410,21 +410,37 @@
         font-weight: 600;
     }
 
-    [data-theme="dark"] .nav-item { margin: 12px 0; }
-    [data-theme="light"] .nav-item { margin: 12px 0; }
+    [data-theme="dark"] .nav-item { 
+        margin: 8px 0; 
+        text-align: left;
+    }
+    
+    [data-theme="light"] .nav-item { 
+        margin: 8px 0; 
+        text-align: left;
+    }
 
+    /* Theme Toggle - aligned to other links */
     .theme-toggle {
-        margin: 15px auto 0 !important;
-        width: auto !important;
-        min-width: 150px;
-        justify-content: center;
+        margin: 12px 0 0 !important;
+        width: 100% !important;
+        justify-content: flex-start !important;
+        padding-left: 0 !important;
+        border: none !important;
+        font-size: 13px !important;
+        font-weight: 600;
+        color: var(--text-dim) !important;
+    }
+
+    [data-theme="light"] .theme-toggle {
+        color: #1e293b !important;
     }
 }
 
-/* Redesign CV Overlap Fix */
+/* Redesign CV Overlap Fix - increased padding */
 @media (max-width: 820px) {
     .hero {
-        padding-top: 100px !important; /* Extra space for fixed nav */
+        padding-top: 130px !important; /* More space to prevent any overlap */
     }
 }
 
