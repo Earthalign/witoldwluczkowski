@@ -5,7 +5,7 @@
 Welcome to the repository of my professional portfolio website. This space acts as a digital business card, showcasing my skills, experience, and the projects I have been part of throughout my career in IT.
 
 ## 👨‍💻 About Me
-I am a seasoned **Software Engineer** specializing primarily in **Python** and **Java** back-end development. Over the years of my commercial experience, I've had the pleasure of delivering scalable, robust, and cleanly architected software solutions. 
+I am a experienced **Software Engineer** specializing primarily in **Python** and **Java** back-end development. Over the years of my commercial experience, I've had the pleasure of delivering scalable, robust, and cleanly architected software solutions. 
 
 Beyond core software development, I actively embrace the **DevOps ecosystem**. I have strong, hands-on experience with:
 - Managing infrastructure and deployments.
@@ -22,7 +22,7 @@ This portfolio was originally a legacy project built early in my learning phase.
 - **Separated Concerns**: Clean and logical separation of standard `HTML5` structure and external `CSS3`.
 - **Integrated CVs**: Hosted resumes attached directly for recruiters and hiring managers.
 
-### Technology Stack
+### Website Technology Stack
 - Vanilla **HTML5** & **CSS3**
 - **Bootstrap 4** (for responsive grid and layout handling)
 - **FontAwesome** (vector UX icons)

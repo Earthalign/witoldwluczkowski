@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Witold Włuczkowski — Software Engineer</title>
+    <meta name="description"
+        content="Witold Wluczkowski – Python & Java Developer, DevOps Engineer. CV with work experience, skills and education.">
+
+    <!-- Icons & Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets: theme first, then page-specific -->
+    <link rel="stylesheet" href="css/dark_theme.css">
+    <link rel="stylesheet" href="css/dark_cv.css">
+    <link rel="stylesheet" href="css/darkmode_overrides.css">
+
+    <!-- Theme applied before first paint to avoid flash -->
+    <script>
+        (function () {
+            var s = localStorage.getItem('ww-theme');
+            if (!s) { s = window.matchMedia && window.matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark'; }
+            document.documentElement.setAttribute('data-theme', s);
+        })();
+    </script>
+</head>
+
+<body>
+
+    <!-- ── NAVIGATION ── -->
+    <nav>
+        <a class="nav-brand" href="strona2.html">WITERLOO</a>
+        <ul class="nav-links">
+            <li><a href="strona2.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="aboutme.html">About</a></li>
+            <li><a href="cv.html">Virtual CV</a></li>
+            <li><a href="cv_redesign.html" class="active">Modern CV</a></li>
+            <li><a href="contact.html">Contact</a></li>
+
+            <li>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+                    <span class="toggle-icon">☀️</span>
+                    <span class="toggle-label">light</span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <div class="hero">
+        <div class="hero-text">
+            <div class="hero-eyebrow">virtual cv — 2026</div>
+            <h1 class="hero-name">Witold<br>Włuczkowski<span class="cursor"></span></h1>
+            <p class="hero-role">
+                <span>Python</span> · <span>Java</span> · <span>DevOps</span> · <span>AI</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- ── CV GRID ── -->
+    <div class="cv-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-block">
+                <div class="sidebar-block-title"><i class="fas fa-at"></i> contact</div>
+                <div class="sidebar-block-body">
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/witold-włuczkowski-7b19491b9/" target="_blank">LinkedIn
+                                profile</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/Earthalign" target="_blank">github/Earthalign</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-location-dot"></i>
+                            <span>Wrocław, Poland</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-block">
+                <div class="sidebar-block-title"><i class="fas fa-terminal"></i> tech skills</div>
+                <div class="sidebar-block-body">
+                    <div class="skill-row">
+                        <div class="skill-label">Python <span>90%</span></div>
+                        <div class="skill-track">
+                            <div class="skill-fill" data-w="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-label">Pytest / Robot Framework <span>90%</span></div>
+                        <div class="skill-track">
+                            <div class="skill-fill" data-w="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-label">GitLab / Git <span>85%</span></div>
+                        <div class="skill-track">
+                            <div class="skill-fill" data-w="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-label">Jenkins / CI-CD <span>80%</span></div>
+                        <div class="skill-track">
+                            <div class="skill-fill" data-w="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-label">AI Tools <span>80%</span></div>
+                        <div class="skill-track">
+                            <div class="skill-fill" data-w="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-label">Java <span>75%</span></div>
+                        <div class="skill-track">
+                            <div class="skill-fill" data-w="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-label">Grafana <span>75%</span></div>
+                        <div class="skill-track">
+                            <div class="skill-fill" data-w="75"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-block">
+                <div class="sidebar-block-title"><i class="fas fa-wrench"></i> tools &amp; methods</div>
+                <div class="sidebar-block-body">
+                    <div class="tags">
+                        <span class="tag">SCRUM/Agile</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Bash</span>
+                        <span class="tag">REST APIs</span>
+                        <span class="tag">OOP</span>
+                        <span class="tag">Jira</span>
+                        <span class="tag">Maven</span>
+                        <span class="tag">Jupyter</span>
+                        <span class="tag">scikit-learn</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Hibernate</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-block">
+                <div class="sidebar-block-title"><i class="fas fa-globe"></i> languages</div>
+                <div class="sidebar-block-body">
+                    <div class="lang-row">
+                        <span class="lang-name">Polish</span>
+                        <span class="lang-badge lang-native">native</span>
+                    </div>
+                    <div class="lang-row">
+                        <span class="lang-name">English</span>
+                        <span class="lang-badge lang-b2">B2</span>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main-col">
+
+            <!-- Work Experience -->
+            <section>
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-briefcase"></i></div>
+                    <span class="section-title">Work Experience</span>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-meta">
+                        <div class="entry-company">Nokia Solutions &amp; Networks</div>
+                        <div class="entry-role">Software Engineer</div>
+                        <div class="entry-location"><i class="fas fa-location-dot"></i> Wrocław, Poland</div>
+                    </div>
+                    <div class="entry-date">05.2023 – present</div>
+                    <ul class="entry-bullets">
+                        <li>Develop <strong>Python CLI applications</strong> and automation scripts for network tooling
+                            used across engineering teams.</li>
+                        <li>Build and maintain <strong>CI/CD pipelines</strong> in Jenkins — reducing deployment
+                            friction and manual steps.</li>
+                        <li>Design monitoring dashboards in <strong>Grafana</strong> and support production
+                            troubleshooting and bug-fixing.</li>
+                        <li>Write unit and nightly test suites using <strong>pytest</strong> and <strong>Robot
+                                Framework</strong>.</li>
+                        <li>Work with GitLab for source control, code review, and CI/CD integration.</li>
+                        <li>Create tools for code analysis and problem-solving shared across teams.</li>
+                    </ul>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-meta">
+                        <div class="entry-company">Nokia Solutions &amp; Networks</div>
+                        <div class="entry-role">Software Working Student — Java &amp; Python</div>
+                        <div class="entry-location"><i class="fas fa-location-dot"></i> Wrocław, Poland</div>
+                    </div>
+                    <div class="entry-date">05.2022 – 05.2023</div>
+                    <ul class="entry-bullets">
+                        <li>Built clean-code <strong>Java applications</strong> following SOLID principles and OOP
+                            patterns.</li>
+                        <li>Developed backend features and services; performed code review and bug-fixing.</li>
+                        <li>Worked with Maven, Hibernate, Git, and Jira within a SCRUM team.</li>
+                        <li>Delivered GUI and CLI application interfaces and participated in sprint planning.</li>
+                    </ul>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-meta">
+                        <div class="entry-company">Tutore Poland</div>
+                        <div class="entry-role">Java Programming Tutor</div>
+                        <div class="entry-location"><i class="fas fa-location-dot"></i> Wrocław, Poland</div>
+                    </div>
+                    <div class="entry-date">09.2020 – 09.2023</div>
+                    <ul class="entry-bullets">
+                        <li>Taught programming fundamentals and object-oriented programming to students of various
+                            levels.</li>
+                        <li>Conducted online classes; guided students through Java from basics to OOP concepts.</li>
+                    </ul>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-meta">
+                        <div class="entry-company">Various Coffee Shops</div>
+                        <div class="entry-role">Barista</div>
+                        <div class="entry-location"><i class="fas fa-location-dot"></i> Poland &amp; United Kingdom
+                        </div>
+                    </div>
+                    <div class="entry-date">03.2017 – 01.2023</div>
+                    <ul class="entry-bullets">
+                        <li>Worked across speciality coffee shops in Poland and the UK; developed strong communication
+                            and teamwork skills.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section>
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <span class="section-title">Education</span>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="edu-entry">
+                    <div>
+                        <div class="edu-school">Wrocław School of Information Technology</div>
+                        <div class="edu-degree">Master's Degree in Programming</div>
+                        <div class="edu-location"><i class="fas fa-location-dot"
+                                style="margin-right:4px;font-size:10px;"></i>Wrocław, Poland</div>
+                    </div>
+                    <div class="edu-date">02.2022 – 05.2024</div>
+                </div>
+
+                <div class="edu-entry">
+                    <div>
+                        <div class="edu-school">Wrocław School of Information Technology</div>
+                        <div class="edu-degree">Engineer's Degree in Programming</div>
+                        <div class="edu-location"><i class="fas fa-location-dot"
+                                style="margin-right:4px;font-size:10px;"></i>Wrocław, Poland</div>
+                    </div>
+                    <div class="edu-date">10.2018 – 02.2022</div>
+                </div>
+            </section>
+
+            <!-- GDPR -->
+            <p class="gdpr">
+                I hereby give consent for my personal data included in this CV to be processed for the purposes of the
+                recruitment process, in accordance with Regulation (EU) 2016/679 of the European Parliament and of the
+                Council of 27 April 2026 (GDPR).
+            </p>
+
+        </main>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/witold-włuczkowski-7b19491b9/" target="_blank"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Earthalign" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.facebook.com/Witek.Wluczkowski" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p>© 2026 Witold Włuczkowski — all rights reserved</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var fills = document.querySelectorAll('.skill-fill');
+            function animateBars() {
+                fills.forEach(function (el) {
+                    if (el.getBoundingClientRect().top < window.innerHeight + 80) {
+                        el.style.width = el.dataset.w + '%';
+                    }
+                });
+            }
+            window.addEventListener('scroll', animateBars);
+            setTimeout(animateBars, 300);
+        });
+    </script>
+    <script src="js/dark_mode.js"></script>
+</body>
+
+</html>
