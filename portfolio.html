@@ -17,7 +17,7 @@
   <script>
     (function () {
       var s = localStorage.getItem('ww-theme');
-      if (!s) s = (window.matchMedia && window.matchMedia('(prefers-color-scheme:light)').matches) ? 'light' : 'dark';
+      if (!s) s = 'dark';
       document.documentElement.setAttribute('data-theme', s);
     })();
   </script>
@@ -52,14 +52,12 @@
           <li class="nav-item">
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
-          <li class="nav-item">
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-              <span class="toggle-icon">☀️</span>
-              <span class="toggle-label">light</span>
-            </button>
-          </li>
         </ul>
       </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="toggle-icon">☀️</span>
+        <span class="toggle-label">light</span>
+      </button>
     </div>
   </nav>
 
@@ -74,45 +72,133 @@
   <!-- Portfolio Content -->
   <section class="section-content bg-white">
     <div class="container">
-      <div class="row">
-        <!-- Project 1 -->
+      <div class="row justify-content-center">
+        <!-- Project 1 – FlatAnalyzer -->
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="project-card">
-            <img src="assets/images/tlo3.jpg" alt="Web Development Project" onerror="this.src='assets/images/tlo1.jpg'">
+            <div style="
+              height: 200px;
+              background: linear-gradient(135deg, #0a0e1a 0%, #1a2236 40%, #0f172a 100%);
+              display: flex; align-items: center; justify-content: center;
+              flex-direction: column; gap: 10px;
+              border-bottom: 1px solid rgba(99,102,241,0.2);
+            ">
+              <div style="font-size: 2.5rem;">🏠</div>
+              <div
+                style="font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; color: #818cf8; text-transform: uppercase;">
+                Python · FastAPI · NBP Data</div>
+            </div>
             <div class="project-card-body">
-              <h3>Web Development</h3>
-              <p>Designing modern, responsive interfaces utilizing the latest UI/UX principles and front-end frameworks.
-              </p>
-              <a href="https://github.com/Earthalign?tab=repositories" target="_blank" class="btn-custom"
-                style="padding: 8px 20px; font-size: 0.9rem;">View on GitHub</a>
+              <h3>FlatAnalyzer</h3>
+              <p>Interactive analysis of real estate prices in Poland. NBP data – primary and secondary market, offer
+                and transaction prices 2015–2025. Backend: Python/FastAPI, tested with pytest.</p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+                <span
+                  style="font-size:0.7rem; padding:2px 8px; border-radius:99px; background:rgba(99,102,241,0.15); color:#818cf8; font-weight:600;">Python</span>
+                <span
+                  style="font-size:0.7rem; padding:2px 8px; border-radius:99px; background:rgba(34,211,238,0.1); color:#22d3ee; font-weight:600;">FastAPI</span>
+                <span
+                  style="font-size:0.7rem; padding:2px 8px; border-radius:99px; background:rgba(245,158,11,0.12); color:#f59e0b; font-weight:600;">Chart.js</span>
+                <span
+                  style="font-size:0.7rem; padding:2px 8px; border-radius:99px; background:rgba(16,185,129,0.12); color:#10b981; font-weight:600;">pytest</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <a href="https://earthalign.github.io/FlatAnalyzer/" target="_blank" class="btn-custom"
+                  style="padding: 8px 16px; font-size: 0.85rem;">🚀 Live Demo</a>
+                <a href="https://github.com/Earthalign/FlatAnalyzer" target="_blank" class="btn-custom"
+                  style="padding: 8px 16px; font-size: 0.85rem; background: transparent; border: 1px solid var(--accent); color: var(--accent);">GitHub</a>
+              </div>
             </div>
           </div>
         </div>
-        <!-- Project 2 -->
+
+        <!-- Project 2 – D&D Companion -->
         <div class="col-lg-4 col-md-6 mb-4">
-          <div class="project-card">
-            <img src="assets/images/zdj1.png" alt="Project 2" onerror="this.src='assets/images/zdj1.png'">
+          <div class="project-card" style="opacity: 0.85;">
+            <div style="
+              height: 200px;
+              background: linear-gradient(135deg, #2d1b1b 0%, #4a0e0e 40%, #1a0a0a 100%);
+              display: flex; align-items: center; justify-content: center;
+              flex-direction: column; gap: 10px;
+              border-bottom: 1px solid rgba(239,68,68,0.2);
+              position: relative;
+            ">
+              <div
+                style="position: absolute; top: 12px; right: 12px; font-size: 0.65rem; font-weight: 800; background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); border-radius: 99px; padding: 2px 10px; letter-spacing: 1px;">
+                IN PROGRESS</div>
+              <div style="font-size: 2.5rem;">🎲</div>
+              <div
+                style="font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; color: #f87171; text-transform: uppercase;">
+                Python · Django · PostgreSQL</div>
+            </div>
             <div class="project-card-body">
-              <h3>System Architecture</h3>
-              <p>Building resilient and scalable backend structures to handle complex data and performance requirements.
-              </p>
-              <a href="https://github.com/Earthalign?tab=repositories" target="_blank" class="btn-custom"
-                style="padding: 8px 20px; font-size: 0.9rem;">View on GitHub</a>
+              <h3>D&D Campaign Companion</h3>
+              <p>A comprehensive tool for Dungeon Masters and players to manage campaigns, characters, and combat
+                encounters. Currently under active development, focusing on automated initiative tracking and lore
+                management.</p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+                <span
+                  style="font-size:0.7rem; padding:2px 8px; border-radius:99px; background:rgba(99,102,241,0.15); color:#818cf8; font-weight:600;">Python</span>
+                <span
+                  style="font-size:0.7rem; padding:2px 8px; border-radius:99px; background:rgba(16,185,129,0.1); color:#10b981; font-weight:600;">Django</span>
+                <span
+                  style="font-size:0.7rem; padding:2px 8px; border-radius:99px; background:rgba(245,158,11,0.12); color:#f59e0b; font-weight:600;">HTMX</span>
+                <span
+                  style="font-size:0.7rem; padding:2px 8px; border-radius:99px; background:rgba(34,211,238,0.1); color:#22d3ee; font-weight:600;">PostgreSQL</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn-custom"
+                  style="padding: 8px 16px; font-size: 0.85rem; opacity: 0.6; cursor: not-allowed;" disabled>Coming
+                  Soon</button>
+                <a href="#" class="btn-custom"
+                  style="padding: 8px 16px; font-size: 0.85rem; background: transparent; border: 1px solid var(--accent); color: var(--accent); opacity: 0.5; pointer-events: none;">Private
+                  Repo</a>
+              </div>
             </div>
           </div>
         </div>
-        <!-- Project 3 -->
+
+        <!-- Project 3 – ML Models -->
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="project-card">
-            <img src="assets/images/zdj6.png" alt="Project 3" onerror="this.src='assets/images/zdj6.png'">
+            <div style="
+              height: 200px;
+              background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #1e1b4b 100%);
+              display: flex; align-items: center; justify-content: center;
+              flex-direction: column; gap: 10px;
+              border-bottom: 1px solid rgba(139,92,246,0.2);
+            ">
+              <div style="font-size: 2.5rem;">🧠</div>
+              <div
+                style="font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; color: #a78bfa; text-transform: uppercase;">
+                Python · Machine Learning · Scikit-learn</div>
+            </div>
             <div class="project-card-body">
-              <h3>Data & Analytics</h3>
-              <p>Implementing data tracking algorithms to deliver actionable insights and improve service quality.</p>
-              <a href="https://github.com/Earthalign?tab=repositories" target="_blank" class="btn-custom"
-                style="padding: 8px 20px; font-size: 0.9rem;">View on GitHub</a>
+              <h3>Master's Thesis ML Demo</h3>
+              <p>A collection of machine learning models and experiments developed as part of my Master's Thesis. This
+                repository showcases my foundational experience in data preprocessing, model selection, and predictive
+                analytics.</p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+                <span
+                  style="font-size:0.7rem; padding:2px 8px; border-radius:99px; background:rgba(139,92,246,0.15); color:#a78bfa; font-weight:600;">Python</span>
+                <span
+                  style="font-size:0.7rem; padding:2px 8px; border-radius:99px; background:rgba(16,185,129,0.1); color:#10b981; font-weight:600;">Pandas</span>
+                <span
+                  style="font-size:0.7rem; padding:2px 8px; border-radius:99px; background:rgba(34,211,238,0.1); color:#22d3ee; font-weight:600;">Scikit-learn</span>
+                <span
+                  style="font-size:0.7rem; padding:2px 8px; border-radius:99px; background:rgba(245,158,11,0.12); color:#f59e0b; font-weight:600;">Jupyter</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <a href="https://github.com/Earthalign/MachineLearningModels" target="_blank" class="btn-custom"
+                  style="padding: 8px 16px; font-size: 0.85rem;">View Repository</a>
+                <span
+                  style="font-size: 0.75rem; color: var(--text-dim); font-style: italic; align-self: center;">(Research
+                  Version)</span>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>

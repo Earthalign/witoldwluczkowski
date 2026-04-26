@@ -23,7 +23,7 @@
   <script>
     (function () {
       var s = localStorage.getItem('ww-theme');
-      if (!s) s = (window.matchMedia && window.matchMedia('(prefers-color-scheme:light)').matches) ? 'light' : 'dark';
+      if (!s) s = 'dark';
       document.documentElement.setAttribute('data-theme', s);
     })();
   </script>
@@ -59,14 +59,12 @@
           <li class="nav-item">
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
-          <li class="nav-item">
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-              <span class="toggle-icon">☀️</span>
-              <span class="toggle-label">light</span>
-            </button>
-          </li>
         </ul>
       </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="toggle-icon">☀️</span>
+        <span class="toggle-label">light</span>
+      </button>
     </div>
   </nav>
 
@@ -77,7 +75,7 @@
       <p>I am Witold Wluczkowski, an experienced Software Engineer with years of commercial practice in Python and Java.
         I specialize in building robust software, writing comprehensive scripts, and architecting reliable internal
         tools.</p>
-      <a href="aboutme.html" class="btn-custom">Discover More</a>
+      <a href="portfolio.html" class="btn-custom">Discover More</a>
     </div>
   </section>
 
@@ -86,16 +84,14 @@
     <div class="container">
       <div class="feature-row">
         <div class="col-md-5">
-          <!-- Using an existing image, assumed good quality from assets -->
-          <img src="assets/images/tlo8.jpg" alt="Technology Projects" class="img-fluid rounded">
+          <!-- Live Project Mockup -->
+          <img src="assets/images/flat_analyzer_final.png" alt="FlatAnalyzer Project" class="img-fluid rounded shadow-lg">
         </div>
         <div class="col-md-7 feature-text">
           <h2>Commercial Software Engineering</h2>
-          <p>I have built my career upon developing advanced software systems, mastering automated scripting, and
-            resolving complex technical challenges. Through years of diverse, commercial engineering work, I implement
-            only the highest code quality standards.</p>
-          <a href="portfolio.html" class="btn-custom"
-            style="background: linear-gradient(to right, #10b981, #059669);">View My Work</a>
+          <p>I specialize in developing high-performance software systems and automated tools. My latest work includes <strong>FlatAnalyzer</strong>, a professional real estate price analysis platform built with Python and FastAPI.</p>
+          <a href="https://earthalign.github.io/FlatAnalyzer/" target="_blank" class="btn-custom"
+            style="background: linear-gradient(to right, #10b981, #059669);">🚀 View Live Demo</a>
         </div>
       </div>
     </div>
@@ -106,18 +102,18 @@
     <div class="container">
       <div class="feature-row">
         <div class="col-md-6 feature-text order-2 order-md-1">
-          <h2>DevOps & Infrastructure (CI/CD)</h2>
-          <p>My skillset extends significantly into DevOps environments. I actively manage infrastructure using Jenkins
-            and Grafana, construct robust CI/CD deployment pipelines, and maintain end-to-end continuous integration
-            systems.</p>
+          <h2>DevOps & Professional Network</h2>
+          <p>I bridge the gap between development and operations by building robust CI/CD pipelines and scalable infrastructure. For a full view of my professional background, endorsements, and current network, please visit my LinkedIn profile.</p>
           <!-- LinkedIn Link -->
           <a href="https://www.linkedin.com/in/witold-w%C5%82uczkowski-7b19491b9/" target="_blank" class="btn-custom"
             style="background: linear-gradient(to right, #0077b5, #005e93); margin-top: 15px;">
-            <i class="fab fa-linkedin mr-2"></i> Connect on LinkedIn
+            <i class="fab fa-linkedin mr-2"></i> View Full Profile
           </a>
         </div>
         <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
-          <img src="assets/images/zdj6.png" alt="DevOps Tech" class="img-fluid rounded">
+          <a href="https://www.linkedin.com/in/witold-w%C5%82uczkowski-7b19491b9/" target="_blank">
+            <img src="assets/images/linkedin_final.png" alt="LinkedIn DevOps Profile" class="img-fluid rounded shadow-lg hover-zoom">
+          </a>
         </div>
       </div>
     </div>
