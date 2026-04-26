@@ -6,12 +6,12 @@
 /* ── HERO ── */
 .hero {
     padding: 120px 2rem 60px;
-    max-width: 1100px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 4rem;
     border-bottom: 1px solid var(--line);
 }
 
@@ -40,9 +40,9 @@
 
 .hero-role {
     font-family: var(--mono);
-    font-size: 14px;
+    font-size: 18px;
     color: var(--text-dim);
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
 .hero-role span {
@@ -58,12 +58,12 @@
 
 /* ── CV GRID LAYOUT ── */
 .cv-layout {
-    max-width: 1100px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 5rem 2rem;
     display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 3rem;
+    grid-template-columns: 350px 1fr;
+    gap: 5rem;
     align-items: start;
 }
 
@@ -84,16 +84,16 @@
 
 .sidebar-block-title {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--text-muted);
-    padding: 10px 16px;
+    padding: 12px 18px;
     background: var(--bg2);
     border-bottom: 1px solid var(--line);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .sidebar-block-title i {
@@ -116,8 +116,8 @@
 .contact-list li {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 13px;
+    gap: 14px;
+    font-size: 16px;
 }
 
 .contact-list i {
@@ -152,9 +152,9 @@
 
 .skill-label {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 13px;
     color: var(--text-dim);
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     display: flex;
     justify-content: space-between;
 }
@@ -336,16 +336,16 @@
 .entry-company {
     font-family: var(--sans);
     font-weight: 700;
-    font-size: 15px;
+    font-size: 22px;
     color: var(--text);
     letter-spacing: -0.01em;
 }
 
 .entry-role {
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 16px;
     color: var(--green);
-    margin: 3px 0 6px;
+    margin: 5px 0 10px;
 }
 
 .entry-location {
@@ -372,11 +372,11 @@
 }
 
 .entry-bullets li {
-    font-size: 13px;
+    font-size: 16px;
     color: var(--text-dim);
-    padding-left: 16px;
+    padding-left: 24px;
     position: relative;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .entry-bullets li::before {
@@ -416,19 +416,19 @@
 
 .edu-school {
     font-weight: 700;
-    font-size: 14px;
+    font-size: 18px;
     color: var(--text);
 }
 
 .edu-degree {
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 16px;
     color: var(--green);
-    margin: 4px 0;
+    margin: 8px 0;
 }
 
 .edu-location {
-    font-size: 12px;
+    font-size: 16px;
     color: var(--text-muted);
 }
 
@@ -507,7 +507,7 @@
     .hero-name {
         font-size: 2.2rem;
     }
-    
+
     .nav-brand {
         font-size: 11px;
     }
