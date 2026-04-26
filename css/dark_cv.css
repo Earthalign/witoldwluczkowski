@@ -469,15 +469,46 @@
     .hero {
         flex-direction: column-reverse;
         align-items: flex-start;
-        padding: 100px 1rem 2rem;
+        padding: 80px 1.5rem 2rem;
+        gap: 1.5rem;
+    }
+
+    .hero-name {
+        font-size: clamp(2rem, 10vw, 3.5rem);
     }
 
     .cv-layout {
         grid-template-columns: 1fr;
-        padding: 1.5rem 1rem;
+        padding: 2rem 1.5rem;
+        gap: 2rem;
     }
 
     .sidebar {
         position: static;
+        order: 2;
+    }
+
+    .main-col {
+        order: 1;
+    }
+
+    .entry {
+        grid-template-columns: 1fr;
+        padding: 1.25rem;
+    }
+
+    .entry-date {
+        text-align: left;
+        margin-top: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-name {
+        font-size: 2.2rem;
+    }
+    
+    .nav-brand {
+        font-size: 11px;
     }
 }
