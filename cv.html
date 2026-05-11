@@ -24,7 +24,9 @@
       document.documentElement.setAttribute('data-theme', s);
     })();
   </script>
-  <!-- html2pdf.js library -->
+  <!-- PDF generation libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
@@ -48,11 +50,11 @@
           </li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="toggle-icon">☀️</span>
+          <span class="toggle-label">light</span>
+        </button>
       </div>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="toggle-icon">☀️</span>
-        <span class="toggle-label">light</span>
-      </button>
     </div>
   </nav>
 
@@ -66,8 +68,7 @@
           class="btn-custom">
           <i class="fas fa-external-link-alt mr-2"></i>Original PDF
         </a>
-        <button id="generatePdfBtn" class="btn-custom" style="background: linear-gradient(to right, #10b981, #059669);"
-          onclick="window.print()">
+        <button id="generatePdfBtn" class="btn-custom" style="background: linear-gradient(to right, #10b981, #059669);">
           <i class="fas fa-file-download mr-2"></i>Generate PDF from Page
         </button>
       </div>
@@ -215,14 +216,20 @@
                 <span class="cv-date">05.2023 – Present</span>
               </div>
               <ul class="cv-bullets">
-                <li>Architect and develop high-performance Python CLI applications and automation frameworks for network tooling.</li>
-                <li>Design and implement internal diagnostic tools to streamline cross-team problem-solving and code analysis.</li>
-                <li>Build and maintain robust CI/CD pipelines in Jenkins to ensure reliable, high-frequency deployments.</li>
+                <li>Architect and develop high-performance Python CLI applications and automation frameworks for network
+                  tooling.</li>
+                <li>Design and implement internal diagnostic tools to streamline cross-team problem-solving and code
+                  analysis.</li>
+                <li>Build and maintain robust CI/CD pipelines in Jenkins to ensure reliable, high-frequency deployments.
+                </li>
                 <li>Engineer real-time monitoring solutions and interactive dashboards using Grafana.</li>
-                <li>Drive technical excellence through rigorous code reviews and the implementation of advanced GitLab workflows.</li>
-                <li>Lead the optimization of development processes, testing methodologies, and deployment automation.</li>
+                <li>Drive technical excellence through rigorous code reviews and the implementation of advanced GitLab
+                  workflows.</li>
+                <li>Lead the optimization of development processes, testing methodologies, and deployment automation.
+                </li>
                 <li>Spearhead troubleshooting and root-cause analysis for complex issues in production systems.</li>
-                <li>Develop comprehensive test suites using <strong>pytest</strong> and <strong>Robot Framework</strong> to ensure platform stability.</li>
+                <li>Develop comprehensive test suites using <strong>pytest</strong> and <strong>Robot Framework</strong>
+                  to ensure platform stability.</li>
               </ul>
             </div>
 
@@ -358,10 +365,98 @@
       window.addEventListener('scroll', animateBars);
       setTimeout(animateBars, 400);
 
-      // --- PDF / PRINT LOGIC ---
-      const generateBtn = document.getElementById('generatePdfBtn');
-      generateBtn.addEventListener('click', function () {
-        window.print();
+      // --- PDF GENERATION (html2canvas + jsPDF with Link Preservation) ---
+      document.getElementById('generatePdfBtn').addEventListener('click', async function () {
+        const btn = this;
+        const originalText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating PDF...';
+
+        const element = document.querySelector('.cv-wrapper');
+        const links = [];
+        let captureWidth = 1000;
+
+        try {
+          const canvas = await html2canvas(element, {
+            scale: 4, // Back to scale 4 for ultra-sharp text
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: '#ffffff',
+            logging: false,
+            scrollX: 0,
+            scrollY: -window.scrollY,
+            windowWidth: 1200,
+            onclone: (clonedDoc) => {
+              clonedDoc.body.classList.add('generating-pdf');
+              const clonedElement = clonedDoc.querySelector('.cv-wrapper');
+              if (clonedElement) {
+                // Stabilize width to measure height
+                clonedElement.style.width = '1000px';
+                const naturalHeight = clonedElement.offsetHeight;
+                
+                // Calculate precise width for A4 ratio (1 : 1.4142)
+                captureWidth = Math.floor(naturalHeight / 1.4142);
+                if (captureWidth < 800) captureWidth = 800;
+
+                clonedElement.style.width = captureWidth + 'px';
+                clonedElement.style.margin = '0';
+                
+                // Map links
+                const wrapperRect = clonedElement.getBoundingClientRect();
+                clonedElement.querySelectorAll('a').forEach(a => {
+                  const rect = a.getBoundingClientRect();
+                  links.push({
+                    url: a.href,
+                    x: rect.left - wrapperRect.left,
+                    y: rect.top - wrapperRect.top,
+                    w: rect.width,
+                    h: rect.height
+                  });
+                });
+              }
+            }
+          });
+
+          // Use JPEG with very high quality (0.98) - sharp as PNG but 10x smaller
+          const imgData = canvas.toDataURL('image/jpeg', 0.98); 
+          const { jsPDF } = window.jspdf;
+          
+          const pdf = new jsPDF({
+            orientation: 'p',
+            unit: 'mm',
+            format: 'a4'
+          });
+          const pdfW = 210;
+          const pdfH = 297;
+
+          const finalW = pdfW;
+          const finalH = pdfH;
+          const xOffset = 0;
+          const yOffset = 0; 
+
+          // Remove 'FAST' to ensure better interpolation
+          pdf.addImage(imgData, 'JPEG', xOffset, yOffset, finalW, finalH);
+
+          // Scale links based on dynamic capture width
+          const scale = finalW / captureWidth;
+          links.forEach(link => {
+            pdf.link(
+              xOffset + (link.x * scale), 
+              yOffset + (link.y * scale), 
+              link.w * scale, 
+              link.h * scale, 
+              { url: link.url }
+            );
+          });
+
+          pdf.save('CV_Witold_Wluczkowski.pdf');
+        } catch (err) {
+          console.error('PDF generation failed:', err);
+          alert('PDF generation failed. Please try again.');
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML = originalText;
+        }
       });
     });
   </script>
