@@ -65,12 +65,14 @@
 }
 
 .cv-photo {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  object-fit: cover;
-  object-position: center top;
-  /* Focus on face, crop shoulders/backpack */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  /* Focus on face */
   border: 4px solid var(--cv-accent);
   margin-bottom: 22px;
   box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.1);
@@ -513,14 +515,16 @@ body.generating-pdf .container {
 
 body.generating-pdf .cv-wrapper {
   display: grid !important;
-  grid-template-columns: 280px 1fr !important; /* Stable sidebar width */
+  grid-template-columns: 280px 1fr !important;
+  /* Stable sidebar width */
   box-shadow: none !important;
   border-radius: 0 !important;
   min-height: unset !important;
 }
 
 body.generating-pdf .cv-sidebar {
-  padding: 30px 20px !important; /* Reduced padding */
+  padding: 30px 12px !important;
+  /* Minimal padding to allow bigger name */
 }
 
 body.generating-pdf .cv-main {
@@ -528,8 +532,8 @@ body.generating-pdf .cv-main {
 }
 
 body.generating-pdf .cv-photo {
-  width: 125px !important;
-  height: 125px !important;
+  width: 190px !important;
+  height: 190px !important;
   margin-bottom: 12px !important;
 }
 
@@ -583,4 +587,18 @@ body.generating-pdf .cv-gdpr {
   font-size: 0.7rem !important;
   margin-top: 20px !important;
   padding-top: 12px !important;
+}
+
+/* Bigger name when no photo is present in PDF */
+body.generating-pdf-no-photo .cv-name {
+  font-size: 2.6rem !important;
+  margin-top: 50px !important;
+  margin-bottom: 25px !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.5px !important;
+}
+
+body.generating-pdf-no-photo .cv-sidebar-header {
+  padding-bottom: 40px !important;
+  margin-bottom: 40px !important;
 }
