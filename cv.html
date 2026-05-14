@@ -96,22 +96,25 @@
           <div class="cv-sidebar-block">
             <h3 class="cv-sidebar-title"><i class="fas fa-address-card mr-2"></i>Contact</h3>
             <ul class="cv-contact-list">
-              <!-- EDIT: update href and label as needed -->
               <li>
-                <i class="fab fa-linkedin"></i>
-                <a href="https://www.linkedin.com/in/witold-w%C5%82uczkowski-7b19491b9/" target="_blank">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/witold-w%C5%82uczkowski-7b19491b9/" target="_blank">
+                  <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
               </li>
               <li>
-                <i class="fab fa-github"></i>
-                <a href="https://github.com/Earthalign" target="_blank">GitHub / Earthalign</a>
+                <a href="https://github.com/Earthalign" target="_blank">
+                  <i class="fab fa-github"></i> GitHub / Earthalign
+                </a>
               </li>
               <li>
-                <i class="fas fa-globe"></i>
-                <a href="https://earthalign.github.io/witoldwluczkowski/cv.html" target="_blank">Website</a>
+                <a href="https://earthalign.github.io/witoldwluczkowski/cv.html" target="_blank">
+                  <i class="fas fa-globe"></i> Website
+                </a>
               </li>
               <li>
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Wrocław, Poland</span>
+                <span>
+                  <i class="fas fa-map-marker-alt"></i> Wrocław, Poland
+                </span>
               </li>
             </ul>
           </div>
@@ -390,7 +393,7 @@
       window.addEventListener('scroll', animateBars);
       setTimeout(animateBars, 400);
 
-      // --- PDF GENERATION (html2canvas + jsPDF with Link Preservation) ---
+      // --- PDF GENERATION (Manual control for PERFECT A4 fit) ---
       async function generatePdf(btn, hidePhoto) {
         const originalText = btn.innerHTML;
         btn.disabled = true;
@@ -398,26 +401,21 @@
 
         const element = document.querySelector('.cv-wrapper');
         const links = [];
-        let captureWidth = 1000;
+        let finalCaptureWidth = 1000;
+        let finalCaptureHeight = 1414;
+        
+        window.scrollTo(0, 0);
 
         try {
           const canvas = await html2canvas(element, {
-            scale: 4, // Back to scale 4 for ultra-sharp text
+            scale: 4, 
             useCORS: true,
             allowTaint: true,
             backgroundColor: '#ffffff',
             logging: false,
-            scrollX: 0,
-            scrollY: -window.scrollY,
             windowWidth: 1200,
             onclone: (clonedDoc) => {
               clonedDoc.body.classList.add('generating-pdf');
-              const style = document.createElement('style');
-              style.textContent = `
-                body.generating-pdf .cv-contact-list li { margin-bottom: 8px !important; font-size: 0.82rem !important; }
-                body.generating-pdf .cv-contact-list a { display: inline-block !important; text-decoration: none !important; }
-              `;
-              clonedDoc.head.appendChild(style);
               if (hidePhoto) {
                 clonedDoc.body.classList.add('generating-pdf-no-photo');
               }
@@ -428,18 +426,18 @@
                   if (photo) photo.style.display = 'none';
                 }
 
-                // Stabilize width to measure height
+                // STEP 1: Determine natural height with a fixed width
                 clonedElement.style.width = '1000px';
                 const naturalHeight = clonedElement.offsetHeight;
 
-                // Calculate precise width for A4 ratio (1 : 1.4142)
-                captureWidth = Math.floor(naturalHeight / 1.4142);
-                if (captureWidth < 800) captureWidth = 800;
+                // STEP 2: Calculate precise width for A4 ratio (1 : 1.4142)
+                finalCaptureWidth = Math.floor(naturalHeight / 1.4142);
+                if (finalCaptureWidth < 800) finalCaptureWidth = 800;
 
-                clonedElement.style.width = captureWidth + 'px';
+                clonedElement.style.width = finalCaptureWidth + 'px';
                 clonedElement.style.margin = '0';
-
-                // Map links with extra safety for clickable area
+                
+                // STEP 3: Wait a tiny bit for layout to settle, then map links
                 const wrapperRect = clonedElement.getBoundingClientRect();
                 clonedElement.querySelectorAll('a').forEach(a => {
                   const rect = a.getBoundingClientRect();
@@ -457,7 +455,10 @@
             }
           });
 
-          // Use JPEG with very high quality (0.98) - sharp as PNG but 10x smaller
+          // Measure the actual captured canvas dimensions
+          const canvasW = canvas.width / 4; // adjust back for scale 4
+          const canvasH = canvas.height / 4;
+
           const imgData = canvas.toDataURL('image/jpeg', 0.98);
           const { jsPDF } = window.jspdf;
 
@@ -466,25 +467,22 @@
             unit: 'mm',
             format: 'a4'
           });
+
           const pdfW = 210;
           const pdfH = 297;
+          
+          pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, pdfH);
 
-          const finalW = pdfW;
-          const finalH = pdfH;
-          const xOffset = 0;
-          const yOffset = 0;
-
-          // Remove 'FAST' to ensure better interpolation
-          pdf.addImage(imgData, 'JPEG', xOffset, yOffset, finalW, finalH);
-
-          // Scale links based on dynamic capture width
-          const scale = finalW / captureWidth;
+          // Correct scaling for links based on ACTUAL canvas size vs PDF size
+          const scaleW = pdfW / canvasW;
+          const scaleH = pdfH / canvasH;
+          
           links.forEach(link => {
             pdf.link(
-              xOffset + (link.x * scale),
-              yOffset + (link.y * scale),
-              link.w * scale,
-              link.h * scale,
+              (link.x * scaleW),
+              (link.y * scaleH),
+              link.w * scaleW,
+              link.h * scaleH,
               { url: link.url }
             );
           });

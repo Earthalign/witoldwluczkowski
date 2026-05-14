@@ -134,7 +134,6 @@
 .cv-contact-list li {
   display: flex;
   align-items: center;
-  gap: 12px;
   margin-bottom: 12px;
   font-size: 0.88rem;
   color: var(--cv-sidebar-text);
@@ -146,10 +145,15 @@
   flex-shrink: 0;
 }
 
-.cv-contact-list a {
+.cv-contact-list a,
+.cv-contact-list span {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   color: var(--cv-sidebar-text);
   text-decoration: none;
   transition: color 0.2s;
+  width: 100%;
 }
 
 .cv-contact-list a:hover {
@@ -501,11 +505,6 @@ body.generating-pdf .cv-section {
   background: #ffffff !important;
 }
 
-body.generating-pdf .cv-section {
-  padding: 0 !important;
-  background: #ffffff !important;
-}
-
 body.generating-pdf .container {
   width: 100% !important;
   max-width: 100% !important;
@@ -515,16 +514,16 @@ body.generating-pdf .container {
 
 body.generating-pdf .cv-wrapper {
   display: grid !important;
-  grid-template-columns: 280px 1fr !important;
-  /* Stable sidebar width */
+  grid-template-columns: 31% 1fr !important;
+  /* Optimized proportional sidebar width */
   box-shadow: none !important;
   border-radius: 0 !important;
   min-height: unset !important;
 }
 
 body.generating-pdf .cv-sidebar {
-  padding: 30px 12px !important;
-  /* Minimal padding to allow bigger name */
+  padding: 40px 20px !important;
+  /* Balanced breathing room */
 }
 
 body.generating-pdf .cv-main {
@@ -532,14 +531,15 @@ body.generating-pdf .cv-main {
 }
 
 body.generating-pdf .cv-photo {
-  width: 190px !important;
-  height: 190px !important;
-  margin-bottom: 12px !important;
+  width: 260px !important;
+  height: 260px !important;
+  margin-bottom: 25px !important;
 }
 
 body.generating-pdf .cv-name {
-  font-size: 1.8rem !important;
-  margin-bottom: 6px !important;
+  font-size: 3.1rem !important;
+  margin-bottom: 12px !important;
+  line-height: 1.0 !important;
 }
 
 body.generating-pdf .cv-sidebar-block {
@@ -548,45 +548,90 @@ body.generating-pdf .cv-sidebar-block {
 }
 
 body.generating-pdf .cv-sidebar-title {
-  margin-bottom: 12px !important;
+  margin-bottom: 16px !important;
+  font-size: 1.15rem !important; /* Significantly larger section titles */
+  letter-spacing: 2px !important;
+}
+
+body.generating-pdf .cv-sidebar-title i {
+  font-size: 1.25rem !important;
+  margin-right: 8px !important;
 }
 
 body.generating-pdf .cv-contact-list li {
-  margin-bottom: 8px !important;
-  font-size: 0.82rem !important;
+  margin-bottom: 14px !important;
+  font-size: 1.2rem !important;
 }
 
-body.generating-pdf .cv-skill {
-  margin-bottom: 10px !important;
+body.generating-pdf .cv-contact-list a,
+body.generating-pdf .cv-contact-list span {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+body.generating-pdf .cv-contact-list li i {
+  width: 24px !important;
+  font-size: 1.2rem !important;
+}
+
+body.generating-pdf .cv-tag {
+  font-size: 0.95rem !important;
+  padding: 5px 12px !important;
+  margin-bottom: 4px !important;
 }
 
 body.generating-pdf .cv-skill-name {
-  font-size: 0.78rem !important;
+  font-size: 0.92rem !important;
+}
+
+body.generating-pdf .cv-lang-name {
+  font-size: 1.15rem !important;
+}
+
+body.generating-pdf .cv-lang-level {
+  font-size: 0.95rem !important;
+  padding: 4px 14px !important;
 }
 
 body.generating-pdf .cv-section-block {
-  margin-bottom: 35px !important;
+  margin-bottom: 55px !important;
 }
 
 body.generating-pdf .cv-main-title {
-  margin-bottom: 22px !important;
-  padding-bottom: 8px !important;
+  margin-bottom: 35px !important;
+  padding-bottom: 15px !important;
+  font-size: 1.3rem !important;
+}
+
+body.generating-pdf .cv-entry-title {
+  font-size: 1.15rem !important;
+}
+
+body.generating-pdf .cv-entry-role {
+  font-size: 1.0rem !important;
 }
 
 body.generating-pdf .cv-entry {
-  margin-bottom: 22px !important;
+  margin-bottom: 35px !important;
+}
+
+/* Slightly increased date size for better visibility */
+body.generating-pdf .cv-date {
+  font-size: 0.92rem !important;
+  padding: 5px 14px !important;
 }
 
 body.generating-pdf .cv-bullets li {
-  font-size: 0.85rem !important;
-  margin-bottom: 4px !important;
-  line-height: 1.45 !important;
+  font-size: 0.95rem !important;
+  margin-bottom: 8px !important;
+  line-height: 1.6 !important;
 }
 
 body.generating-pdf .cv-gdpr {
-  font-size: 0.7rem !important;
-  margin-top: 20px !important;
-  padding-top: 12px !important;
+  font-size: 0.72rem !important;
+  margin-top: 40px !important;
+  padding-top: 20px !important;
 }
 
 /* Bigger name when no photo is present in PDF */
