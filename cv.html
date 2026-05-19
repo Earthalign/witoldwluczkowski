@@ -455,7 +455,7 @@
                 }
 
                 // STEP 2: Force exact A4 proportions to prevent any jsPDF distortion
-                let finalCaptureHeight = Math.floor(bestWidth * 1.4142);
+                finalCaptureHeight = Math.floor(bestWidth * 1.4142);
                 clonedElement.style.width = bestWidth + 'px';
                 clonedElement.style.height = finalCaptureHeight + 'px';
                 clonedElement.style.overflow = 'hidden';
@@ -481,10 +481,6 @@
             }
           });
 
-          // Measure the actual captured canvas dimensions
-          const canvasW = canvas.width / 4; // adjust back for scale 3
-          const canvasH = canvas.height / 4;
-
           const imgData = canvas.toDataURL('image/jpeg', 0.98);
           const { jsPDF } = window.jspdf;
 
@@ -499,9 +495,9 @@
 
           pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, pdfH);
 
-          // Correct scaling for links based on ACTUAL canvas size vs PDF size
-          const scaleW = pdfW / canvasW;
-          const scaleH = pdfH / canvasH;
+          // Calculate scale factors based on the cloned container size vs PDF size
+          const scaleW = pdfW / finalCaptureWidth;
+          const scaleH = pdfH / finalCaptureHeight;
 
           links.forEach(link => {
             pdf.link(
