@@ -255,7 +255,8 @@
     background: linear-gradient(to bottom, var(--green, #39ff7e), transparent) !important;
 }
 
-[data-theme="dark"] .cv-bullets li {
+[data-theme="dark"] .cv-bullets li,
+[data-theme="dark"] .cv-summary-text {
     color: var(--text-dim, #8a9099) !important;
 }
 

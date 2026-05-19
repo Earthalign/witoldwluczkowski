@@ -213,6 +213,16 @@
         </aside>
         <main class="cv-main">
 
+          <!-- SUMMARY / ABOUT ME -->
+          <div class="cv-section-block cv-section-summary">
+            <h3 class="cv-main-title"><i class="fas fa-user mr-2"></i>Professional Summary</h3>
+            <p class="cv-summary-text">
+              Experienced Python and Java developer with 4 years of commercial experience, seeking new opportunities.
+              Skilled in backend development, with strong problem solving abilities and extensive experience in
+              client-facing roles.
+            </p>
+          </div>
+
           <!-- WORK EXPERIENCE -->
           <div class="cv-section-block cv-section-exp">
             <h3 class="cv-main-title"><i class="fas fa-briefcase mr-2"></i>Work Experience</h3>
@@ -232,8 +242,6 @@
                   tooling.</li>
                 <li>Strategically implement and experiment with various <strong>AI models (LLMs, Agents)</strong> to
                   enhance productivity in both commercial projects and hobbyist research.</li>
-                <li>Develop complex data processing pipelines using <strong>NumPy</strong> and <strong>Pandas</strong>
-                  for network performance telemetry.</li>
                 <li>Design and implement internal diagnostic tools to streamline cross-team problem-solving and code
                   analysis.</li>
                 <li>Build and maintain robust CI/CD pipelines in Jenkins to ensure reliable, high-frequency deployments.
@@ -247,8 +255,6 @@
                   quality through thorough self-review.</li>
                 <li>Author and maintain detailed <strong>technical documentation</strong>, API specifications, and user
                   guides to ensure project maintainability.</li>
-                <li>Lead the optimization of development processes, testing methodologies, and deployment automation.
-                </li>
                 <li>Troubleshoot and perform root-cause analysis for complex issues in production systems.</li>
                 <li>Develop comprehensive test suites using <strong>pytest</strong> and <strong>Robot Framework</strong>
                   to ensure platform stability.</li>
@@ -349,9 +355,10 @@
 
           <!-- GDPR CLAUSE -->
           <p class="cv-gdpr">
-            I hereby give consent for my personal data included in this CV to be processed for the purposes of the
-            recruitment process, in accordance with Regulation (EU) 2016/679 of the European Parliament and of the
-            Council of 27 April 2016 (GDPR).
+            I hereby give consent for my personal data included in my application to be processed for the purposes of
+            the recruitment process under the Personal Data Protection Act as of 10 May 2018 (Journal of Laws 2018, item
+            1000) and in agreement with Regulation (EU) 2016/679 of the European Parliament and of the Council of 27
+            April 2016 (GDPR).
           </p>
         </main>
 
@@ -403,12 +410,12 @@
         const links = [];
         let finalCaptureWidth = 1000;
         let finalCaptureHeight = 1414;
-        
+
         window.scrollTo(0, 0);
 
         try {
           const canvas = await html2canvas(element, {
-            scale: 4, 
+            scale: 3,
             useCORS: true,
             allowTaint: true,
             backgroundColor: '#ffffff',
@@ -426,17 +433,36 @@
                   if (photo) photo.style.display = 'none';
                 }
 
-                // STEP 1: Determine natural height with a fixed width
-                clonedElement.style.width = '1000px';
-                const naturalHeight = clonedElement.offsetHeight;
+                // STEP 1: Binary search to find perfect width for A4 aspect ratio
+                // This ensures content exactly fills the page without white space or clipping.
+                let minWidth = 600;
+                let maxWidth = 1800;
+                let bestWidth = 1000;
 
-                // STEP 2: Calculate precise width for A4 ratio (1 : 1.4142)
-                finalCaptureWidth = Math.floor(naturalHeight / 1.4142);
-                if (finalCaptureWidth < 800) finalCaptureWidth = 800;
+                for (let i = 0; i < 12; i++) {
+                  bestWidth = (minWidth + maxWidth) / 2;
+                  clonedElement.style.width = bestWidth + 'px';
+                  let testHeight = clonedElement.offsetHeight;
 
-                clonedElement.style.width = finalCaptureWidth + 'px';
+                  let targetRatio = testHeight / bestWidth;
+                  if (targetRatio > 1.4142) {
+                    // Content is too tall. Make container wider so text wraps less and height drops.
+                    minWidth = bestWidth;
+                  } else {
+                    // Content is too short (empty space at bottom). Make container narrower.
+                    maxWidth = bestWidth;
+                  }
+                }
+
+                // STEP 2: Force exact A4 proportions to prevent any jsPDF distortion
+                let finalCaptureHeight = Math.floor(bestWidth * 1.4142);
+                clonedElement.style.width = bestWidth + 'px';
+                clonedElement.style.height = finalCaptureHeight + 'px';
+                clonedElement.style.overflow = 'hidden';
                 clonedElement.style.margin = '0';
-                
+
+                finalCaptureWidth = bestWidth;
+
                 // STEP 3: Wait a tiny bit for layout to settle, then map links
                 const wrapperRect = clonedElement.getBoundingClientRect();
                 clonedElement.querySelectorAll('a').forEach(a => {
@@ -456,7 +482,7 @@
           });
 
           // Measure the actual captured canvas dimensions
-          const canvasW = canvas.width / 4; // adjust back for scale 4
+          const canvasW = canvas.width / 4; // adjust back for scale 3
           const canvasH = canvas.height / 4;
 
           const imgData = canvas.toDataURL('image/jpeg', 0.98);
@@ -470,13 +496,13 @@
 
           const pdfW = 210;
           const pdfH = 297;
-          
+
           pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, pdfH);
 
           // Correct scaling for links based on ACTUAL canvas size vs PDF size
           const scaleW = pdfW / canvasW;
           const scaleH = pdfH / canvasH;
-          
+
           links.forEach(link => {
             pdf.link(
               (link.x * scaleW),
@@ -487,7 +513,7 @@
             );
           });
 
-          pdf.save(hidePhoto ? 'CV_Witold_Wluczkowski_NoPhoto.pdf' : 'CV_Witold_Wluczkowski.pdf');
+          pdf.save(hidePhoto ? 'CV_Witold_Wluczkowski_SoftwareEngineer_NoPhoto.pdf' : 'CV_Witold_Wluczkowski_SoftwareEngineer.pdf');
         } catch (err) {
           console.error('PDF generation failed:', err);
           alert('PDF generation failed. Please try again.');
