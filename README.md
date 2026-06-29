@@ -1,6 +1,6 @@
 # Witold Wluczkowski - Professional IT Portfolio
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-success?style=for-the-badge&logoColor=white)](https://earthalign.github.io/witoldwluczkowski/strona2.html)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-success?style=for-the-badge&logoColor=white)](https://earthalign.github.io/witoldwluczkowski/main.html)
 
 Welcome to the repository of my professional portfolio website. This space acts as a digital business card, showcasing my skills, experience, and the projects I have been part of throughout my career in IT.
 
@@ -31,7 +31,7 @@ This portfolio was originally a legacy project built early in my learning phase.
 ## 📬 Contact & Links
 If you are looking for an experienced developer who bridges the gap between clean code and reliable deployments, let's get in touch!
 
-- **LinkedIn**: [Connect with me](https://www.linkedin.com/in/witold-w%C5%82uczkowski-7b19491b9/)
+- **LinkedIn**: [Connect with me](https://www.linkedin.com/in/witoldwluczkowski-dev/)
 - **GitHub**: [Earthalign](https://github.com/Earthalign)
 - **Email**: witoldwluczkowski@gmail.com
 

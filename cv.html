@@ -35,13 +35,13 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="strona2.html">WITERLOO</a>
+      <a class="navbar-brand" href="main.html">WITERLOO</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href="strona2.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="main.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
           <li class="nav-item"><a class="nav-link" href="aboutme.html">About Me</a></li>
           <li class="nav-item active"><a class="nav-link" href="cv.html">Virtual CV</a></li>
@@ -63,17 +63,22 @@
     <div class="container text-center">
       <h1>Virtual CV</h1>
       <p class="mx-auto">My professional experience, skills and education — all in one place.</p>
-      <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
+      <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
         <a href="https://drive.google.com/file/d/1Q6v03Y-Nr6_Pj4oOU2Y3zTYB_mJymZG7/view?usp=sharing" target="_blank"
-          class="btn-custom">
-          <i class="fas fa-external-link-alt mr-2"></i>Original PDF
+          class="btn-custom" style="padding: 4px 10px; font-size: 0.75rem;">
+          <i class="fas fa-external-link-alt mr-1"></i>Original PDF
         </a>
-        <button id="generatePdfBtn" class="btn-custom" style="background: linear-gradient(to right, #10b981, #059669);">
-          <i class="fas fa-file-download mr-2"></i>Generate PDF from Page
+        <button id="generatePdfBtn" class="btn-custom"
+          style="background: linear-gradient(to right, #10b981, #059669); padding: 4px 10px; font-size: 0.75rem;">
+          <i class="fas fa-file-download mr-1"></i>Generate PDF
+        </button>
+        <button id="generatePdfSmallBtn" class="btn-custom"
+          style="background: linear-gradient(to right, #10b981, #059669); padding: 4px 10px; font-size: 0.75rem;">
+          <i class="fas fa-file-download mr-1"></i>Compressed PDF
         </button>
         <button id="generatePdfNoPhotoBtn" class="btn-custom"
-          style="background: linear-gradient(to right, #6366f1, #4f46e5);">
-          <i class="fas fa-file-download mr-2"></i>Generate PDF (No Photo)
+          style="background: linear-gradient(to right, #6366f1, #4f46e5); padding: 4px 10px; font-size: 0.75rem;">
+          <i class="fas fa-file-download mr-1"></i>PDF (No Photo)
         </button>
       </div>
   </section>
@@ -97,7 +102,7 @@
             <h3 class="cv-sidebar-title"><i class="fas fa-address-card mr-2"></i>Contact</h3>
             <ul class="cv-contact-list">
               <li>
-                <a href="https://www.linkedin.com/in/witold-w%C5%82uczkowski-7b19491b9/" target="_blank">
+                <a href="https://www.linkedin.com/in/witoldwluczkowski-dev/" target="_blank">
                   <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
               </li>
@@ -207,7 +212,7 @@
             </div>
             <div class="cv-lang-item">
               <span class="cv-lang-name">English</span>
-              <span class="cv-lang-level cv-lang-b2">B2</span>
+              <span class="cv-lang-level cv-lang-c1">C1</span>
             </div>
           </div>
         </aside>
@@ -370,8 +375,7 @@
   <footer class="text-center">
     <div class="container">
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/witold-w%C5%82uczkowski-7b19491b9/" target="_blank"><i
-            class="fab fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/witoldwluczkowski-dev/" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/Earthalign" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://www.facebook.com/Witek.Wluczkowski" target="_blank"><i class="fab fa-facebook"></i></a>
       </div>
@@ -401,7 +405,7 @@
       setTimeout(animateBars, 400);
 
       // --- PDF GENERATION (Manual control for PERFECT A4 fit) ---
-      async function generatePdf(btn, hidePhoto) {
+      async function generatePdf(btn, hidePhoto, smallSize = false) {
         const originalText = btn.innerHTML;
         btn.disabled = true;
         btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating PDF...';
@@ -415,7 +419,7 @@
 
         try {
           const canvas = await html2canvas(element, {
-            scale: 3,
+            scale: smallSize ? 1.5 : 3,
             useCORS: true,
             allowTaint: true,
             backgroundColor: '#ffffff',
@@ -481,7 +485,7 @@
             }
           });
 
-          const imgData = canvas.toDataURL('image/jpeg', 0.98);
+          const imgData = canvas.toDataURL('image/jpeg', smallSize ? 0.6 : 0.98);
           const { jsPDF } = window.jspdf;
 
           const pdf = new jsPDF({
@@ -525,6 +529,10 @@
 
       document.getElementById('generatePdfNoPhotoBtn').addEventListener('click', function () {
         generatePdf(this, true);
+      });
+
+      document.getElementById('generatePdfSmallBtn').addEventListener('click', function () {
+        generatePdf(this, false, true);
       });
     });
   </script>
