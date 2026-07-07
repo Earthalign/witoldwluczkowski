@@ -349,3 +349,91 @@ footer {
   border-color: rgba(10, 124, 62, 0.2);
   color: #0a7c3e;
 }
+
+/* Terminal Card (Contact Page) */
+.terminal-card {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  font-family: 'JetBrains Mono', monospace;
+  color: #a9b7c6;
+  border: 1px solid #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.terminal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+html[data-theme="light"] .terminal-card {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+html[data-theme="light"] .terminal-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.terminal-header {
+  background-color: #2d2d2d;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #111;
+}
+
+.terminal-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.terminal-btn.close-btn { background-color: #ff5f56; }
+.terminal-btn.minimize-btn { background-color: #ffbd2e; }
+.terminal-btn.expand-btn { background-color: #27c93f; }
+
+.terminal-title {
+  margin-left: auto;
+  margin-right: auto;
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.terminal-body {
+  padding: 20px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.terminal-command {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.terminal-card .prompt {
+  color: #27c93f;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.terminal-output {
+  color: #ce9178;
+  margin: 0 0 15px 0;
+  padding-left: 10px;
+  white-space: pre-wrap;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal-key { color: #9cdcfe; }
+.terminal-punct { color: #d4d4d4; }
+
+.typing-animation::after {
+  content: '█';
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
