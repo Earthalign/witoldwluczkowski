@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Virtual CV | Witold Wluczkowski</title>
+  <title>Witold Wluczkowski - Software Engineer CV</title>
   <meta name="description"
     content="Witold Wluczkowski – Python & Java Developer, DevOps Engineer. CV with work experience, skills and education history.">
 
@@ -24,10 +24,8 @@
       document.documentElement.setAttribute('data-theme', s);
     })();
   </script>
-  <!-- PDF generation libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
@@ -64,10 +62,6 @@
       <h1>Virtual CV</h1>
       <p class="mx-auto">My professional experience, skills and education — all in one place.</p>
       <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
-        <!-- <a href="https://drive.google.com/file/d/1Q6v03Y-Nr6_Pj4oOU2Y3zTYB_mJymZG7/view?usp=sharing" target="_blank"
-          class="btn-custom" style="padding: 4px 10px; font-size: 0.75rem;">
-          <i class="fas fa-external-link-alt mr-1"></i>Original PDF
-        </a> -->
         <button id="generatePdfBtn" class="btn-custom"
           style="background: linear-gradient(to right, #10b981, #059669); padding: 4px 10px; font-size: 0.75rem;">
           <i class="fas fa-file-download mr-1"></i>Generate PDF
@@ -151,7 +145,13 @@
               </div>
             </div>
             <div class="cv-skill">
-              <span class="cv-skill-name">Jenkins / CI/CD</span>
+              <span class="cv-skill-name">Jenkins</span>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-fill" data-level="80" style="width: 80%;"></div>
+              </div>
+            </div>
+            <div class="cv-skill">
+              <span class="cv-skill-name">CI/CD</span>
               <div class="cv-skill-bar">
                 <div class="cv-skill-fill" data-level="80" style="width: 80%;"></div>
               </div>
@@ -232,9 +232,11 @@
           <div class="cv-section-block cv-section-summary">
             <h3 class="cv-main-title"><i class="fas fa-user mr-2"></i>Professional Summary</h3>
             <p class="cv-summary-text">
-              Experienced Python and Java developer with 4 years of commercial experience, seeking new opportunities.
-              Skilled in backend development, with strong problem solving abilities and extensive experience in
-              client-facing roles.
+              Python-focused Software Engineer with commercial experience building automation tools and CLI
+              applications in Linux environments. Hands-on experience with Bash scripting, CI/CD, and test automation
+              using pytest and Robot Framework, as well as production troubleshooting, performance optimization, and
+              code reviews. Also experienced in Java backend development and collaborating across teams to deliver
+              reliable, maintainable software.
             </p>
           </div>
 
@@ -414,17 +416,16 @@
       window.addEventListener('scroll', animateBars);
       setTimeout(animateBars, 400);
 
-      // --- PDF GENERATION (Manual control for PERFECT A4 fit) ---
-      async function generatePdf(btn, hidePhoto, smallSize = false) {
+      async function generatePdf(btn, hidePhoto, smallSize) {
         const originalText = btn.innerHTML;
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating PDF...';
-
         const element = document.querySelector('.cv-wrapper');
         const links = [];
+        let cvText = '';
         let finalCaptureWidth = 1000;
         let finalCaptureHeight = 1414;
 
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating PDF...';
         window.scrollTo(0, 0);
 
         try {
@@ -435,69 +436,124 @@
             backgroundColor: '#ffffff',
             logging: false,
             windowWidth: 1200,
-            onclone: (clonedDoc) => {
+            onclone: clonedDoc => {
               clonedDoc.body.classList.add('generating-pdf');
               if (hidePhoto) {
                 clonedDoc.body.classList.add('generating-pdf-no-photo');
               }
+
               const clonedElement = clonedDoc.querySelector('.cv-wrapper');
-              if (clonedElement) {
-                if (hidePhoto) {
-                  const photo = clonedElement.querySelector('.cv-photo');
-                  if (photo) photo.style.display = 'none';
-                }
-
-                // STEP 1: Binary search to find perfect width for A4 aspect ratio
-                // This ensures content exactly fills the page without white space or clipping.
-                let minWidth = 600;
-                let maxWidth = 1800;
-                let bestWidth = 1000;
-
-                for (let i = 0; i < 12; i++) {
-                  bestWidth = (minWidth + maxWidth) / 2;
-                  clonedElement.style.width = bestWidth + 'px';
-                  let testHeight = clonedElement.offsetHeight;
-
-                  let targetRatio = testHeight / bestWidth;
-                  if (targetRatio > 1.4142) {
-                    // Content is too tall. Make container wider so text wraps less and height drops.
-                    minWidth = bestWidth;
-                  } else {
-                    // Content is too short (empty space at bottom). Make container narrower.
-                    maxWidth = bestWidth;
-                  }
-                }
-
-                // STEP 2: Force exact A4 proportions to prevent any jsPDF distortion
-                finalCaptureHeight = Math.floor(bestWidth * 1.4142);
-                clonedElement.style.width = bestWidth + 'px';
-                clonedElement.style.height = finalCaptureHeight + 'px';
-                clonedElement.style.overflow = 'hidden';
-                clonedElement.style.margin = '0';
-
-                finalCaptureWidth = bestWidth;
-
-                // STEP 3: Wait a tiny bit for layout to settle, then map links
-                const wrapperRect = clonedElement.getBoundingClientRect();
-                clonedElement.querySelectorAll('a').forEach(a => {
-                  const rect = a.getBoundingClientRect();
-                  if (rect.width > 0 && rect.height > 0) {
-                    links.push({
-                      url: a.href,
-                      x: rect.left - wrapperRect.left,
-                      y: rect.top - wrapperRect.top,
-                      w: rect.width,
-                      h: rect.height
-                    });
-                  }
-                });
+              if (!clonedElement) {
+                return;
               }
+
+              const plainText = node => node
+                ? node.innerText.replace(/[\uE000-\uF8FF]/g, '').trim()
+                : '';
+              const sidebar = clonedElement.querySelector('.cv-sidebar');
+              const main = clonedElement.querySelector('.cv-main');
+              const contact = clonedElement.querySelector('.cv-contact-list');
+              const contactSection = contact?.closest('.cv-sidebar-block');
+              const contactText = contact
+                ? Array.from(contact.querySelectorAll('li')).map(item => {
+                    const link = item.querySelector('a');
+                    const label = plainText(item);
+                    if (!link || !/^https?:$/.test(new URL(link.href).protocol)) {
+                      return label;
+                    }
+                    return `${label} (${new URL(link.href).hostname}${new URL(link.href).pathname})`;
+                  }).join('\n')
+                : '';
+              const sidebarSections = sidebar
+                ? Array.from(sidebar.querySelectorAll('.cv-sidebar-block'))
+                    .filter(block => block !== contactSection)
+                : [];
+              const sidebarSection = title => sidebarSections.find(block =>
+                plainText(block.querySelector('.cv-sidebar-title')).toLowerCase() === title.toLowerCase()
+              );
+              const skillsSection = sidebarSection('Tech Skills');
+              const skillsText = skillsSection
+                ? [
+                    plainText(skillsSection.querySelector('.cv-sidebar-title')),
+                    ...Array.from(skillsSection.querySelectorAll('.cv-skill-name'))
+                    .map(plainText)
+                    .flatMap(skill => {
+                      if (skill === 'Robot Framework') {
+                        return [];
+                      }
+                      return [skill];
+                    })
+                ].join('\n')
+                : '';
+              const languageSection = sidebarSection('Languages');
+              const languageText = languageSection
+                ? Array.from(languageSection.querySelectorAll('.cv-lang-item'))
+                    .map(item => {
+                      const name = plainText(item.querySelector('.cv-lang-name'));
+                      const level = plainText(item.querySelector('.cv-lang-level'));
+                      return `${name}: ${level}`;
+                    })
+                    .join('\n')
+                : '';
+              const mainSection = selector => main?.querySelector(selector);
+              cvText = [
+                plainText(clonedElement.querySelector('.cv-sidebar-header')),
+                contactText,
+                plainText(mainSection('.cv-section-summary')),
+                plainText(mainSection('.cv-section-exp')),
+                skillsText,
+                plainText(sidebarSection('Tools & Methodology')),
+                plainText(mainSection('.cv-section-edu')),
+                languageText,
+                plainText(main?.querySelector('.cv-gdpr'))
+              ].filter(Boolean).join('\n\n');
+              if (hidePhoto) {
+                const photo = clonedElement.querySelector('.cv-photo');
+                if (photo) {
+                  photo.style.display = 'none';
+                }
+              }
+
+              let minWidth = 600;
+              let maxWidth = 1800;
+              let bestWidth = 1000;
+
+              for (let i = 0; i < 12; i++) {
+                bestWidth = (minWidth + maxWidth) / 2;
+                clonedElement.style.width = bestWidth + 'px';
+                const targetRatio = clonedElement.offsetHeight / bestWidth;
+                if (targetRatio > 1.4142) {
+                  minWidth = bestWidth;
+                } else {
+                  maxWidth = bestWidth;
+                }
+              }
+
+              finalCaptureHeight = Math.floor(bestWidth * 1.4142);
+              clonedElement.style.width = bestWidth + 'px';
+              clonedElement.style.height = finalCaptureHeight + 'px';
+              clonedElement.style.overflow = 'hidden';
+              clonedElement.style.margin = '0';
+              finalCaptureWidth = bestWidth;
+
+              const wrapperRect = clonedElement.getBoundingClientRect();
+              clonedElement.querySelectorAll('a').forEach(a => {
+                const rect = a.getBoundingClientRect();
+                if (rect.width > 0 && rect.height > 0) {
+                  links.push({
+                    url: a.href,
+                    x: rect.left - wrapperRect.left,
+                    y: rect.top - wrapperRect.top,
+                    w: rect.width,
+                    h: rect.height
+                  });
+                }
+              });
             }
           });
 
           const imgData = canvas.toDataURL('image/jpeg', smallSize ? 0.6 : 0.98);
           const { jsPDF } = window.jspdf;
-
           const pdf = new jsPDF({
             orientation: 'p',
             unit: 'mm',
@@ -506,24 +562,40 @@
 
           const pdfW = 210;
           const pdfH = 297;
-
           pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, pdfH);
 
-          // Calculate scale factors based on the cloned container size vs PDF size
+          const searchableText = cvText
+            .replace(/[łŁ]/g, char => char === 'ł' ? 'l' : 'L')
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[–—]/g, '-')
+            .replace(/[ \t]+\n/g, '\n')
+            .replace(/\n{3,}/g, '\n\n')
+            .trim();
+          pdf.setFont('helvetica', 'normal');
+          pdf.setFontSize(1);
+          pdf.setTextColor(255, 255, 255);
+          const textLines = pdf.splitTextToSize(searchableText, pdfW - 10);
+          pdf.text(textLines, 5, 5, {
+            renderingMode: 'invisible',
+            lineHeightFactor: 0.8
+          });
+
           const scaleW = pdfW / finalCaptureWidth;
           const scaleH = pdfH / finalCaptureHeight;
-
           links.forEach(link => {
             pdf.link(
-              (link.x * scaleW),
-              (link.y * scaleH),
+              link.x * scaleW,
+              link.y * scaleH,
               link.w * scaleW,
               link.h * scaleH,
               { url: link.url }
             );
           });
 
-          pdf.save(hidePhoto ? 'CV_Witold_Wluczkowski_SoftwareEngineer_NoPhoto.pdf' : 'CV_Witold_Wluczkowski_SoftwareEngineer.pdf');
+          pdf.save(hidePhoto
+            ? 'CV_Witold_Wluczkowski_SoftwareEngineer_NoPhoto.pdf'
+            : 'CV_Witold_Wluczkowski_SoftwareEngineer.pdf');
         } catch (err) {
           console.error('PDF generation failed:', err);
           alert('PDF generation failed. Please try again.');
@@ -534,11 +606,11 @@
       }
 
       document.getElementById('generatePdfBtn').addEventListener('click', function () {
-        generatePdf(this, false);
+        generatePdf(this, false, false);
       });
 
       document.getElementById('generatePdfNoPhotoBtn').addEventListener('click', function () {
-        generatePdf(this, true);
+        generatePdf(this, true, false);
       });
 
       document.getElementById('generatePdfSmallBtn').addEventListener('click', function () {
